@@ -49,6 +49,9 @@
                             <buttonConfiguration key="configuration" style="filled" title="Done">
                                 <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="onNextHome:" destination="-1" eventType="touchUpInside" id="gjc-UK-6P7"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

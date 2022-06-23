@@ -19,10 +19,17 @@ class Success: UIViewController {
         vContainer.layer.cornerRadius = 20
         btnDone.clipsToBounds = true
         btnDone.layer.cornerRadius = 20
+        btnDone.backgroundColor = .mainColor()
         
     }
 
-
+    @IBAction func onNextHome(_ sender: Any) {
+        let sb = UIStoryboard(name: "Home", bundle: nil)
+        if let vc = sb.instantiateInitialViewController() as? HomeViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 
 
 }

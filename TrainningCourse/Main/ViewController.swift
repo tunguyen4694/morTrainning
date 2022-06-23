@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "BoardingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BoardingCollectionViewCell")
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.isScrollEnabled = false
+        collectionView.isScrollEnabled = true
         collectionView.isPagingEnabled = true
         
         nextPage.numberOfPages = datas.count
@@ -38,24 +38,23 @@ class ViewController: UIViewController {
         
         signUpView.clipsToBounds = true
         signUpView.layer.cornerRadius = 10
+        signUpView.backgroundColor = .mainColor()
         logInView.clipsToBounds = true
         logInView.layer.cornerRadius = 10
         logInView.layer.borderWidth = 0.5
-        logInView.layer.borderColor = UIColor(red: 0.722, green: 0.722, blue: 0.824, alpha: 1).cgColor
+        logInView.layer.borderColor = UIColor.borderColor().cgColor
 //        collectionView.backgroundColor = .systemCyan
-        print(collectionView.contentOffset.x)
+//        print(collectionView.contentOffset.x)
+        
     }
     
     @IBAction func onSkip(_ sender: Any) {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-            self.collectionView.contentOffset.x += self.view.frame.maxX
-            if self.collectionView.contentOffset.x >= self.view.frame.maxX*2 {
+            self.collectionView.contentOffset.x += self.view.frame.maxX*2
                 self.skipButton.isHidden = true
                 self.signUpView.isHidden = false
                 self.logInView.isHidden = false
-            }
         }, completion: nil)
-        
     }
     
     @IBAction func onSignUp(_ sender: Any) {
@@ -66,7 +65,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        let sb = UIStoryboard(name: "LogIn", bundle: nil)
+        let sb = UIStoryboard(name: "Login", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? LoginViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -106,6 +105,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         nextPage.currentPage = Int(pageIndex)
         print(pageIndex)
         print(collectionView.contentOffset.x)
+        
+        if collectionView.contentOffset.x == view.frame.maxX*2 {
+            self.skipButton.isHidden = true
+            self.signUpView.isHidden = false
+            self.logInView.isHidden = false
+        }
     }
 }
 

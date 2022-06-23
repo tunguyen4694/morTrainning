@@ -32,17 +32,18 @@ class SignUpViewController: UIViewController {
         
         emailView.clipsToBounds = true
         emailView.layer.cornerRadius = 10
-        emailView.layer.borderColor = UIColor(red: 0.722, green: 0.722, blue: 0.824, alpha: 1).cgColor
+        emailView.layer.borderColor = UIColor.borderColor().cgColor
         emailView.layer.borderWidth = 0.5
         
         passwordView.clipsToBounds = true
         passwordView.layer.cornerRadius = 10
-        passwordView.layer.borderColor = UIColor(red: 0.722, green: 0.722, blue: 0.824, alpha: 1).cgColor
+        passwordView.layer.borderColor = UIColor.borderColor().cgColor
         passwordView.layer.borderWidth = 0.5
         
         creatView.clipsToBounds = true
         creatView.layer.cornerRadius = 10
         creatView.layer.opacity = 0.5
+        creatView.backgroundColor = .mainColor()
         
         passwordTextField.isSecureTextEntry = true
         

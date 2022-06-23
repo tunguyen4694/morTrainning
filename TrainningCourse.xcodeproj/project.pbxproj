@@ -18,7 +18,7 @@
 		84795B69285ACDAA006AA068 /* TrainningCourseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795B68285ACDAA006AA068 /* TrainningCourseUITests.swift */; };
 		84795B6B285ACDAA006AA068 /* TrainningCourseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795B6A285ACDAA006AA068 /* TrainningCourseUITestsLaunchTests.swift */; };
 		84795B7E285AD989006AA068 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84795B7D285AD989006AA068 /* SignUp.storyboard */; };
-		84795B82285AE483006AA068 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84795B81285AE483006AA068 /* LogIn.storyboard */; };
+		84795B82285AE483006AA068 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84795B81285AE483006AA068 /* Login.storyboard */; };
 		84795B84285AFF97006AA068 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795B83285AFF97006AA068 /* SignUp.swift */; };
 		84795B86285AFFA3006AA068 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795B85285AFFA3006AA068 /* Login.swift */; };
 		84795B89285B159B006AA068 /* BoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84795B87285B159B006AA068 /* BoardingCollectionViewCell.swift */; };
@@ -31,14 +31,17 @@
 		A5843CE528619F1B00747E04 /* PhoneCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5843CE328619F1B00747E04 /* PhoneCollectionViewCell.xib */; };
 		A599384A28605A9C00D6489C /* Success.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599384828605A9C00D6489C /* Success.swift */; };
 		A599384B28605A9C00D6489C /* Success.xib in Resources */ = {isa = PBXBuildFile; fileRef = A599384928605A9C00D6489C /* Success.xib */; };
-		A599384E286063EB00D6489C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599384C286063EB00D6489C /* HomeViewController.swift */; };
-		A599384F286063EB00D6489C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A599384D286063EB00D6489C /* HomeViewController.xib */; };
-		A599385328615CB800D6489C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599385128615CB800D6489C /* TestViewController.swift */; };
-		A599385428615CB800D6489C /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A599385228615CB800D6489C /* TestViewController.xib */; };
 		A5BAF3DC2862BC1A00A81519 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5BAF3DB2862BC1A00A81519 /* GoogleService-Info.plist */; };
 		A5BAF3E42862EAB900A81519 /* VerifyPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BAF3E22862EAB900A81519 /* VerifyPhone.swift */; };
 		A5BAF3E52862EAB900A81519 /* VerifyPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5BAF3E32862EAB900A81519 /* VerifyPhone.xib */; };
 		AA69FD6BA39651A3F2EEB030 /* Pods_TrainningCourse_TrainningCourseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0ACD9C8E88A55E84060486B /* Pods_TrainningCourse_TrainningCourseUITests.framework */; };
+		DA2BA7DB286473BF00EC02BA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2BA7DA286473BF00EC02BA /* Account.swift */; };
+		DA2BA7DD286473CD00EC02BA /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2BA7DC286473CD00EC02BA /* Account.storyboard */; };
+		DABF52BD28641DD000546A18 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52BC28641DD000546A18 /* Home.swift */; };
+		DABF52BF28641DE300546A18 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DABF52BE28641DE300546A18 /* Home.storyboard */; };
+		DABF52C12864234800546A18 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52C02864234800546A18 /* Extention.swift */; };
+		DABF52C628644D5700546A18 /* AdsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52C428644D5700546A18 /* AdsCollectionViewCell.swift */; };
+		DABF52C728644D5700546A18 /* AdsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DABF52C528644D5700546A18 /* AdsCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +82,7 @@
 		84795B68285ACDAA006AA068 /* TrainningCourseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainningCourseUITests.swift; sourceTree = "<group>"; };
 		84795B6A285ACDAA006AA068 /* TrainningCourseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainningCourseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		84795B7D285AD989006AA068 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
-		84795B81285AE483006AA068 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		84795B81285AE483006AA068 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		84795B83285AFF97006AA068 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		84795B85285AFFA3006AA068 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		84795B87285B159B006AA068 /* BoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -93,15 +96,18 @@
 		A5843CE328619F1B00747E04 /* PhoneCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCollectionViewCell.xib; sourceTree = "<group>"; };
 		A599384828605A9C00D6489C /* Success.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Success.swift; sourceTree = "<group>"; };
 		A599384928605A9C00D6489C /* Success.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Success.xib; sourceTree = "<group>"; };
-		A599384C286063EB00D6489C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		A599384D286063EB00D6489C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		A599385128615CB800D6489C /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		A599385228615CB800D6489C /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		A5BAF3DB2862BC1A00A81519 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A5BAF3E22862EAB900A81519 /* VerifyPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhone.swift; sourceTree = "<group>"; };
 		A5BAF3E32862EAB900A81519 /* VerifyPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyPhone.xib; sourceTree = "<group>"; };
 		C65F911BFF424D9660522D86 /* Pods_TrainningCourse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainningCourse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1E5F41AB5DA936702120AF /* Pods-TrainningCourse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainningCourse.release.xcconfig"; path = "Target Support Files/Pods-TrainningCourse/Pods-TrainningCourse.release.xcconfig"; sourceTree = "<group>"; };
+		DA2BA7DA286473BF00EC02BA /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		DA2BA7DC286473CD00EC02BA /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		DABF52BC28641DD000546A18 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		DABF52BE28641DE300546A18 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		DABF52C02864234800546A18 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
+		DABF52C428644D5700546A18 /* AdsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCollectionViewCell.swift; sourceTree = "<group>"; };
+		DABF52C528644D5700546A18 /* AdsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdsCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 		84795B3B285ACDA9006AA068 = {
 			isa = PBXGroup;
 			children = (
+				DABF52C02864234800546A18 /* Extention.swift */,
 				A5BAF3DB2862BC1A00A81519 /* GoogleService-Info.plist */,
 				84795B46285ACDA9006AA068 /* TrainningCourse */,
 				84795B5D285ACDAA006AA068 /* TrainningCourseTests */,
@@ -174,12 +181,12 @@
 				A5843CDD28617BD000747E04 /* TrainningCourse.entitlements */,
 				A5843CE62861CD6B00747E04 /* Delegate */,
 				A5843CE72861CD8E00747E04 /* Main */,
-				A599385128615CB800D6489C /* TestViewController.swift */,
-				A599385228615CB800D6489C /* TestViewController.xib */,
-				A599385028615BBB00D6489C /* Home */,
 				A599384728605A0E00D6489C /* Boarding */,
-				84795B8C285B1843006AA068 /* Login */,
 				84795B8B285B182C006AA068 /* SignUp */,
+				84795B8C285B1843006AA068 /* Login */,
+				A599385028615BBB00D6489C /* Home */,
+				DA2BA7DA286473BF00EC02BA /* Account.swift */,
+				DA2BA7DC286473CD00EC02BA /* Account.storyboard */,
 				84795B50285ACDAA006AA068 /* Assets.xcassets */,
 				84795B52285ACDAA006AA068 /* LaunchScreen.storyboard */,
 				84795B55285ACDAA006AA068 /* Info.plist */,
@@ -220,7 +227,7 @@
 			children = (
 				A5843CE82861CDA200747E04 /* WithPhone */,
 				84795B85285AFFA3006AA068 /* Login.swift */,
-				84795B81285AE483006AA068 /* LogIn.storyboard */,
+				84795B81285AE483006AA068 /* Login.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -279,8 +286,10 @@
 		A599385028615BBB00D6489C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A599384C286063EB00D6489C /* HomeViewController.swift */,
-				A599384D286063EB00D6489C /* HomeViewController.xib */,
+				DABF52BC28641DD000546A18 /* Home.swift */,
+				DABF52BE28641DE300546A18 /* Home.storyboard */,
+				DABF52C428644D5700546A18 /* AdsCollectionViewCell.swift */,
+				DABF52C528644D5700546A18 /* AdsCollectionViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -400,17 +409,18 @@
 			files = (
 				84795B54285ACDAA006AA068 /* LaunchScreen.storyboard in Resources */,
 				A5843CE528619F1B00747E04 /* PhoneCollectionViewCell.xib in Resources */,
+				DABF52BF28641DE300546A18 /* Home.storyboard in Resources */,
 				84795B51285ACDAA006AA068 /* Assets.xcassets in Resources */,
 				84795B7E285AD989006AA068 /* SignUp.storyboard in Resources */,
+				DABF52C728644D5700546A18 /* AdsCollectionViewCell.xib in Resources */,
+				DA2BA7DD286473CD00EC02BA /* Account.storyboard in Resources */,
 				84795B4F285ACDA9006AA068 /* Main.storyboard in Resources */,
 				A5BAF3DC2862BC1A00A81519 /* GoogleService-Info.plist in Resources */,
 				84795B8A285B159B006AA068 /* BoardingCollectionViewCell.xib in Resources */,
 				A5843CE12861984F00747E04 /* LoginWithPhone.xib in Resources */,
 				A599384B28605A9C00D6489C /* Success.xib in Resources */,
 				A5BAF3E52862EAB900A81519 /* VerifyPhone.xib in Resources */,
-				A599385428615CB800D6489C /* TestViewController.xib in Resources */,
-				84795B82285AE483006AA068 /* LogIn.storyboard in Resources */,
-				A599384F286063EB00D6489C /* HomeViewController.xib in Resources */,
+				84795B82285AE483006AA068 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,14 +548,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A599385328615CB800D6489C /* TestViewController.swift in Sources */,
 				84795B89285B159B006AA068 /* BoardingCollectionViewCell.swift in Sources */,
 				A5BAF3E42862EAB900A81519 /* VerifyPhone.swift in Sources */,
 				A599384A28605A9C00D6489C /* Success.swift in Sources */,
 				84795B4C285ACDA9006AA068 /* ViewController.swift in Sources */,
 				84795B86285AFFA3006AA068 /* Login.swift in Sources */,
+				DA2BA7DB286473BF00EC02BA /* Account.swift in Sources */,
+				DABF52C12864234800546A18 /* Extention.swift in Sources */,
+				DABF52C628644D5700546A18 /* AdsCollectionViewCell.swift in Sources */,
+				DABF52BD28641DD000546A18 /* Home.swift in Sources */,
 				84795B84285AFF97006AA068 /* SignUp.swift in Sources */,
-				A599384E286063EB00D6489C /* HomeViewController.swift in Sources */,
 				84795B48285ACDA9006AA068 /* AppDelegate.swift in Sources */,
 				A5843CE02861984F00747E04 /* LoginWithPhone.swift in Sources */,
 				A5843CE428619F1B00747E04 /* PhoneCollectionViewCell.swift in Sources */,

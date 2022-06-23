@@ -10,10 +10,6 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 
-protocol LoginWithPhoneDelegate: class {
-    func passText(_ phone: String)
-}
-
 class LoginWithPhone: UIViewController, AuthUIDelegate {
 
     @IBOutlet weak var vPhoneNumber: UIView!
@@ -22,13 +18,6 @@ class LoginWithPhone: UIViewController, AuthUIDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let arrNum = ["1", "2" , "3", "4", "5", "6", "7", "8", "9", "", "0", "<-"]
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let phone = tfPhoneNumber.text ?? ""
-        
-        let destinationVC = segue.destination as! VerifyPhone
-        destinationVC.phone = phone
-    }
     
     override func viewDidLoad() {
         
@@ -53,10 +42,10 @@ class LoginWithPhone: UIViewController, AuthUIDelegate {
     
     @IBAction func verifyPhoneNumber(_ sender: Any) {
         let vc = VerifyPhone()
+        vc.phone = tfPhoneNumber.text ?? ""
         navigationController?.pushViewController(vc, animated: true)
         
-        PhoneAuthProvider.provider()
-            .verifyPhoneNumber(tfPhoneNumber.text ?? "", uiDelegate: nil) { verificationID, error in
+        PhoneAuthProvider.provider().verifyPhoneNumber("+84\(tfPhoneNumber.text ?? "")", uiDelegate: nil) { verificationID, error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                 } else {
@@ -65,6 +54,32 @@ class LoginWithPhone: UIViewController, AuthUIDelegate {
                 Auth.auth().languageCode = "vn"
                 
                 UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+            if let verificationID = verificationID {
+                let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: "111111")
+                Auth.auth().signIn(with: credential) { authResult, error in
+                    if let error = error {
+                      let authError = error as NSError
+                      if authError.code == AuthErrorCode.secondFactorRequired.rawValue {
+                        // The user is a multi-factor user. Second factor challenge is required.
+                        let resolver = authError
+                          .userInfo[AuthErrorUserInfoMultiFactorResolverKey] as! MultiFactorResolver
+                        var displayNameString = ""
+                        for tmpFactorInfo in resolver.hints {
+                          displayNameString += tmpFactorInfo.displayName ?? ""
+                          displayNameString += " "
+                        }
+                        
+                      } else {
+                        
+                        return
+                      }
+                      // ...
+                      return
+                    }
+                    // User is signed in
+                    // ...
+                }
+                }
             }
     }
 }

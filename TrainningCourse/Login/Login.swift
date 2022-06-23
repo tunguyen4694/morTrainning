@@ -43,15 +43,16 @@ class LoginViewController: UIViewController {
         
         emailView.clipsToBounds = true
         emailView.layer.borderWidth = 0.5
-        emailView.layer.borderColor = UIColor(red: 0.722, green: 0.722, blue: 0.824, alpha: 1).cgColor
+        emailView.layer.borderColor = UIColor.borderColor().cgColor
         emailView.layer.cornerRadius = 10
         
         passwordView.clipsToBounds = true
         passwordView.layer.borderWidth = 0.5
-        passwordView.layer.borderColor = UIColor(red: 0.722, green: 0.722, blue: 0.824, alpha: 1).cgColor
+        passwordView.layer.borderColor = UIColor.borderColor().cgColor
         passwordView.layer.cornerRadius = 10
         
         loginView.layer.cornerRadius = 10
+        loginView.backgroundColor = .mainColor()
         
         passwordTextField.isSecureTextEntry = true
         
@@ -106,7 +107,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func signInFb(_ sender: Any) {
         let loginManager = LoginManager()
-        loginManager.logOut()
+//        loginManager.logOut()
         loginManager.logIn(permissions: [.publicProfile, .email], viewController: self, completion: { (LoginResult) in
             switch LoginResult {
                 case .failed(let error):
@@ -150,8 +151,10 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
             if let _ = authResult {
-                let vc = HomeViewController()
-                self?.navigationController?.pushViewController(vc, animated: true)
+                let sb = UIStoryboard(name: "Home", bundle: nil)
+                if let vc = sb.instantiateInitialViewController() as? HomeViewController {
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
             } else {
                 let alertController = UIAlertController(title: "Error", message: "\(error?.localizedDescription ?? "")", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .cancel)

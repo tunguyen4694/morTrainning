@@ -161,7 +161,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgA-Ph-Cso">
-                                                        <rect key="frame" x="24" y="216" width="99.666666666666686" height="17"/>
+                                                        <rect key="frame" x="24.000000000000007" y="216" width="99.666666666666686" height="17"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                         <connections>
