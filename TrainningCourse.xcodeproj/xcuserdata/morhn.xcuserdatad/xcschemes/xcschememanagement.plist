@@ -6,8 +6,28 @@
 	<dict>
 		<key>TrainningCourse.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>24</integer>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>84795B43285ACDA9006AA068</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84795B59285ACDAA006AA068</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84795B63285ACDAA006AA068</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

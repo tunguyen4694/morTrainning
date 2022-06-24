@@ -1,18 +1,22 @@
 //
-//  Home.swift
+//  Course.swift
 //  TrainningCourse
 //
-//  Created by MorHN on 23/06/2022.
+//  Created by MorHN on 24/06/2022.
 //
 
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController {
+class CourseViewController: UIViewController {
     
-    @IBOutlet weak var vTop: UIView!
-    @IBOutlet weak var v1Search: UIView!
-    @IBOutlet weak var v2Search: UIView!
+    @IBOutlet weak var vSearch: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var vAll: UIView!
+    @IBOutlet weak var vPopular: UIView!
+    @IBOutlet weak var vNew: UIView!
+    @IBOutlet weak var vBarSearch1: UIView!
+    @IBOutlet weak var vBarSearch2: UIView!
     
     @IBOutlet weak var vLineHome: UIView!
     @IBOutlet weak var imgHome: UIImageView!
@@ -30,26 +34,26 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var imgAcc: UIImageView!
     @IBOutlet weak var lblAcc: UILabel!
     
-    @IBOutlet weak var collectionView: UICollectionView!
-
-    var arrImage = ["ads", "ads1"]
+    var datas: [Course] = courseData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configUI()
+        congigUI()
     }
     
-
-    func configUI() {
-        view.backgroundColor = .mainColor()
-        vTop.layer.cornerRadius = 10
-        v1Search.layer.cornerRadius = 30
-        v2Search.layer.cornerRadius = 25
+    func congigUI() {
+        vSearch.layer.cornerRadius = 15
+        vAll.layer.cornerRadius = 10
+        vPopular.layer.cornerRadius = 10
+        vNew.layer.cornerRadius = 10
+        vBarSearch1.layer.cornerRadius = 30
+        vBarSearch2.layer.cornerRadius = 25
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "AdsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AdsCollectionViewCell")
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "CourseTableViewCell", bundle: nil), forCellReuseIdentifier: "CourseTableViewCell")
     }
     
     @IBAction func onHome(_ sender: Any) {
@@ -104,7 +108,6 @@ class HomeViewController: UIViewController {
         if let vc = sb.instantiateInitialViewController() as? SearchViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
-        print("Search")
     }
     @IBAction func onMessage(_ sender: Any) {
         vLineHome.backgroundColor = .iconColor()
@@ -123,7 +126,6 @@ class HomeViewController: UIViewController {
         lblCourse.textColor = .iconColor()
         lblMessage.textColor = .mainColor()
         lblAcc.textColor = .iconColor()
-        
         let sb = UIStoryboard(name: "Message", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? MessageViewController {
             navigationController?.pushViewController(vc, animated: false)
@@ -154,26 +156,19 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrImage.count
+extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datas.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdsCollectionViewCell", for: indexPath) as! AdsCollectionViewCell
-        cell.imgAds.image = UIImage(named: arrImage[indexPath.row])
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseTableViewCell") as! CourseTableViewCell
+        cell.imgCourse.image = datas[indexPath.row].image
+        cell.lblName.text = datas[indexPath.row].name
+        cell.lblTrainer.text = datas[indexPath.row].trainer
+        cell.lblPrix.text = datas[indexPath.row].prix
+        cell.lblTime.text = datas[indexPath.row].time
+        cell.selectionStyle = .none
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.bounds.width/1.5, height: collectionView.bounds.height)
     }
 }

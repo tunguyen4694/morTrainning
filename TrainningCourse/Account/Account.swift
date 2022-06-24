@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  Account.swift
 //  TrainningCourse
 //
 //  Created by MorHN on 23/06/2022.
@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController {
+class AccountViewController: UIViewController {
     
-    @IBOutlet weak var vTop: UIView!
     @IBOutlet weak var v1Search: UIView!
     @IBOutlet weak var v2Search: UIView!
     
@@ -30,26 +29,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var imgAcc: UIImageView!
     @IBOutlet weak var lblAcc: UILabel!
     
-    @IBOutlet weak var collectionView: UICollectionView!
-
-    var arrImage = ["ads", "ads1"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configUI()
-    }
-    
-
-    func configUI() {
-        view.backgroundColor = .mainColor()
-        vTop.layer.cornerRadius = 10
         v1Search.layer.cornerRadius = 30
         v2Search.layer.cornerRadius = 25
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "AdsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AdsCollectionViewCell")
     }
     
     @IBAction func onHome(_ sender: Any) {
@@ -104,7 +88,6 @@ class HomeViewController: UIViewController {
         if let vc = sb.instantiateInitialViewController() as? SearchViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
-        print("Search")
     }
     @IBAction func onMessage(_ sender: Any) {
         vLineHome.backgroundColor = .iconColor()
@@ -123,7 +106,6 @@ class HomeViewController: UIViewController {
         lblCourse.textColor = .iconColor()
         lblMessage.textColor = .mainColor()
         lblAcc.textColor = .iconColor()
-        
         let sb = UIStoryboard(name: "Message", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? MessageViewController {
             navigationController?.pushViewController(vc, animated: false)
@@ -151,29 +133,5 @@ class HomeViewController: UIViewController {
         if let vc = sb.instantiateInitialViewController() as? AccountViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
-    }
-}
-
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrImage.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdsCollectionViewCell", for: indexPath) as! AdsCollectionViewCell
-        cell.imgAds.image = UIImage(named: arrImage[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.bounds.width/1.5, height: collectionView.bounds.height)
     }
 }
