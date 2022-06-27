@@ -24,7 +24,7 @@ class Success: UIViewController {
     }
 
     @IBAction func onNextHome(_ sender: Any) {
-        let sb = UIStoryboard(name: "Home", bundle: nil)
+        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? HomeViewController {
             navigationController?.pushViewController(vc, animated: true)
         }

@@ -17,5 +17,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
         vCell.layer.cornerRadius = 10
     }
+    
+    override var isSelected: Bool {
+        didSet {
+            self.vCell.backgroundColor = isSelected ? .mainColor() : .iconColor()
+            self.lblSearch.textColor = isSelected ? .white : .contentColor()
+        }
+    }
 
 }

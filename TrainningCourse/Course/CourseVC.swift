@@ -1,5 +1,5 @@
 //
-//  Message.swift
+//  Course.swift
 //  TrainningCourse
 //
 //  Created by MorHN on 24/06/2022.
@@ -8,10 +8,15 @@
 import Foundation
 import UIKit
 
-class MessageViewController: UIViewController {
+class CourseViewController: UIViewController {
     
-    @IBOutlet weak var v1Search: UIView!
-    @IBOutlet weak var v2Search: UIView!
+    @IBOutlet weak var vSearch: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var vAll: UIView!
+    @IBOutlet weak var vPopular: UIView!
+    @IBOutlet weak var vNew: UIView!
+    @IBOutlet weak var vBarSearch1: UIView!
+    @IBOutlet weak var vBarSearch2: UIView!
     
     @IBOutlet weak var vLineHome: UIView!
     @IBOutlet weak var imgHome: UIImageView!
@@ -29,11 +34,26 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var imgAcc: UIImageView!
     @IBOutlet weak var lblAcc: UILabel!
     
+    var datas: [Course] = courseData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        v1Search.layer.cornerRadius = 30
-        v2Search.layer.cornerRadius = 25
+        congigUI()
+    }
+    
+    func congigUI() {
+        vSearch.layer.cornerRadius = 15
+        vAll.layer.cornerRadius = 10
+        vPopular.layer.cornerRadius = 10
+        vNew.layer.cornerRadius = 10
+        vBarSearch1.layer.cornerRadius = 30
+        vBarSearch2.layer.cornerRadius = 25
+        
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "CourseTableViewCell", bundle: nil), forCellReuseIdentifier: "CourseTableViewCell")
     }
     
     @IBAction func onHome(_ sender: Any) {
@@ -54,7 +74,7 @@ class MessageViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .iconColor()
         
-        let sb = UIStoryboard(name: "Home", bundle: nil)
+        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? HomeViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
@@ -77,14 +97,14 @@ class MessageViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .iconColor()
         
-        let sb = UIStoryboard(name: "Course", bundle: nil)
+        let sb = UIStoryboard(name: "CourseVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? CourseViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
     }
     
     @IBAction func onSearch(_ sender: Any) {
-        let sb = UIStoryboard(name: "Search", bundle: nil)
+        let sb = UIStoryboard(name: "SearchVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? SearchViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -106,8 +126,7 @@ class MessageViewController: UIViewController {
         lblCourse.textColor = .iconColor()
         lblMessage.textColor = .mainColor()
         lblAcc.textColor = .iconColor()
-        
-        let sb = UIStoryboard(name: "Message", bundle: nil)
+        let sb = UIStoryboard(name: "MessageVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? MessageViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
@@ -130,9 +149,26 @@ class MessageViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .mainColor()
         
-        let sb = UIStoryboard(name: "Account", bundle: nil)
+        let sb = UIStoryboard(name: "AccountVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? AccountViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
+    }
+}
+
+extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseTableViewCell") as! CourseTableViewCell
+        cell.imgCourse.image = datas[indexPath.row].image
+        cell.lblName.text = datas[indexPath.row].name
+        cell.lblTrainer.text = datas[indexPath.row].trainer
+        cell.lblPrix.text = datas[indexPath.row].prix
+        cell.lblTime.text = datas[indexPath.row].time
+        cell.selectionStyle = .none
+        return cell
     }
 }

@@ -36,6 +36,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.isNavigationBarHidden = true
+        
         scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = false
         
@@ -58,6 +60,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     @IBAction func loginWithSMS(_ sender: Any) {
         let vc = LoginWithPhone()
         navigationController?.pushViewController(vc, animated: true)
@@ -66,7 +73,7 @@ class LoginViewController: UIViewController {
     @IBAction func signInGoogle(_ sender: Any) {
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
             if let error = error {
-                // ...
+                // ...  
                 return
               }
 
@@ -151,7 +158,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
             if let _ = authResult {
-                let sb = UIStoryboard(name: "Home", bundle: nil)
+                let sb = UIStoryboard(name: "HomeVC", bundle: nil)
                 if let vc = sb.instantiateInitialViewController() as? HomeViewController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
@@ -175,7 +182,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onNextSignup(_ sender: Any) {
-        let sb = UIStoryboard(name: "SignUp", bundle: nil)
+        let sb = UIStoryboard(name: "SignUpVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? SignUpViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }

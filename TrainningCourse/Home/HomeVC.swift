@@ -1,22 +1,18 @@
 //
-//  Course.swift
+//  Home.swift
 //  TrainningCourse
 //
-//  Created by MorHN on 24/06/2022.
+//  Created by MorHN on 23/06/2022.
 //
 
 import Foundation
 import UIKit
 
-class CourseViewController: UIViewController {
+class HomeViewController: UIViewController {
     
-    @IBOutlet weak var vSearch: UIView!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var vAll: UIView!
-    @IBOutlet weak var vPopular: UIView!
-    @IBOutlet weak var vNew: UIView!
-    @IBOutlet weak var vBarSearch1: UIView!
-    @IBOutlet weak var vBarSearch2: UIView!
+    @IBOutlet weak var vTop: UIView!
+    @IBOutlet weak var v1Search: UIView!
+    @IBOutlet weak var v2Search: UIView!
     
     @IBOutlet weak var vLineHome: UIView!
     @IBOutlet weak var imgHome: UIImageView!
@@ -34,26 +30,32 @@ class CourseViewController: UIViewController {
     @IBOutlet weak var imgAcc: UIImageView!
     @IBOutlet weak var lblAcc: UILabel!
     
-    var datas: [Course] = courseData()
+    @IBOutlet weak var collectionView: UICollectionView!
+
+    var arrImage = ["ads", "ads1"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        congigUI()
+        configUI()
     }
     
-    func congigUI() {
-        vSearch.layer.cornerRadius = 15
-        vAll.layer.cornerRadius = 10
-        vPopular.layer.cornerRadius = 10
-        vNew.layer.cornerRadius = 10
-        vBarSearch1.layer.cornerRadius = 30
-        vBarSearch2.layer.cornerRadius = 25
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+
+    func configUI() {
+        navigationController?.isNavigationBarHidden = true
         
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "CourseTableViewCell", bundle: nil), forCellReuseIdentifier: "CourseTableViewCell")
+        view.backgroundColor = .mainColor()
+        vTop.layer.cornerRadius = 10
+        v1Search.layer.cornerRadius = 30
+        v2Search.layer.cornerRadius = 25
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "AdsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AdsCollectionViewCell")
     }
     
     @IBAction func onHome(_ sender: Any) {
@@ -74,7 +76,7 @@ class CourseViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .iconColor()
         
-        let sb = UIStoryboard(name: "Home", bundle: nil)
+        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? HomeViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
@@ -97,17 +99,18 @@ class CourseViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .iconColor()
         
-        let sb = UIStoryboard(name: "Course", bundle: nil)
+        let sb = UIStoryboard(name: "CourseVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? CourseViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
     }
     
     @IBAction func onSearch(_ sender: Any) {
-        let sb = UIStoryboard(name: "Search", bundle: nil)
+        let sb = UIStoryboard(name: "SearchVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? SearchViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
+//        print("Search")
     }
     @IBAction func onMessage(_ sender: Any) {
         vLineHome.backgroundColor = .iconColor()
@@ -126,7 +129,8 @@ class CourseViewController: UIViewController {
         lblCourse.textColor = .iconColor()
         lblMessage.textColor = .mainColor()
         lblAcc.textColor = .iconColor()
-        let sb = UIStoryboard(name: "Message", bundle: nil)
+        
+        let sb = UIStoryboard(name: "MessageVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? MessageViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
@@ -149,26 +153,41 @@ class CourseViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .mainColor()
         
-        let sb = UIStoryboard(name: "Account", bundle: nil)
+        let sb = UIStoryboard(name: "AccountVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? AccountViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
     }
-}
-
-extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datas.count
+    
+    @IBAction func onMyCourse(_ sender: Any) {
+        let sb = UIStoryboard(name: "MyCourseVC", bundle: nil)
+        if let vc = sb.instantiateInitialViewController() as? MyCourseViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseTableViewCell") as! CourseTableViewCell
-        cell.imgCourse.image = datas[indexPath.row].image
-        cell.lblName.text = datas[indexPath.row].name
-        cell.lblTrainer.text = datas[indexPath.row].trainer
-        cell.lblPrix.text = datas[indexPath.row].prix
-        cell.lblTime.text = datas[indexPath.row].time
-        cell.selectionStyle = .none
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return arrImage.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdsCollectionViewCell", for: indexPath) as! AdsCollectionViewCell
+        cell.imgAds.image = UIImage(named: arrImage[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: collectionView.bounds.width/1.5, height: collectionView.bounds.height)
     }
 }

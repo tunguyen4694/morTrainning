@@ -1,14 +1,14 @@
 //
-//  Account.swift
+//  Message.swift
 //  TrainningCourse
 //
-//  Created by MorHN on 23/06/2022.
+//  Created by MorHN on 24/06/2022.
 //
 
 import Foundation
 import UIKit
 
-class AccountViewController: UIViewController {
+class MessageViewController: UIViewController {
     
     @IBOutlet weak var v1Search: UIView!
     @IBOutlet weak var v2Search: UIView!
@@ -54,7 +54,7 @@ class AccountViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .iconColor()
         
-        let sb = UIStoryboard(name: "Home", bundle: nil)
+        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? HomeViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
@@ -77,14 +77,14 @@ class AccountViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .iconColor()
         
-        let sb = UIStoryboard(name: "Course", bundle: nil)
+        let sb = UIStoryboard(name: "CourseVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? CourseViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
     }
     
     @IBAction func onSearch(_ sender: Any) {
-        let sb = UIStoryboard(name: "Search", bundle: nil)
+        let sb = UIStoryboard(name: "SearchVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? SearchViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -106,7 +106,8 @@ class AccountViewController: UIViewController {
         lblCourse.textColor = .iconColor()
         lblMessage.textColor = .mainColor()
         lblAcc.textColor = .iconColor()
-        let sb = UIStoryboard(name: "Message", bundle: nil)
+        
+        let sb = UIStoryboard(name: "MessageVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? MessageViewController {
             navigationController?.pushViewController(vc, animated: false)
         }
@@ -129,7 +130,7 @@ class AccountViewController: UIViewController {
         lblMessage.textColor = .iconColor()
         lblAcc.textColor = .mainColor()
         
-        let sb = UIStoryboard(name: "Account", bundle: nil)
+        let sb = UIStoryboard(name: "AccountVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? AccountViewController {
             navigationController?.pushViewController(vc, animated: false)
         }

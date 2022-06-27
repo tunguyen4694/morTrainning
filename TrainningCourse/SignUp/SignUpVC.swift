@@ -107,7 +107,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func onNextLogin(_ sender: Any) {
-        let sb = UIStoryboard(name: "LogIn", bundle: nil)
+        let sb = UIStoryboard(name: "LoginVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? LoginViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }

@@ -58,14 +58,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onSignUp(_ sender: Any) {
-        let sb = UIStoryboard(name: "SignUp", bundle: nil)
+        let sb = UIStoryboard(name: "SignUpVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? SignUpViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        let sb = UIStoryboard(name: "Login", bundle: nil)
+        let sb = UIStoryboard(name: "LoginVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? LoginViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
