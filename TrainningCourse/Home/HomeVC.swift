@@ -10,6 +10,26 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var stHeader: UIStackView!
+
+    @IBOutlet weak var containerHeaderHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var iconHeaderHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    let maxContainerHeaderHeight: CGFloat = 250
+    let minContainerHeaderHeight: CGFloat = 88
+    
+    let maxHeaderHeight: CGFloat = 153.0
+    let minHeaderHeight: CGFloat = 44.0
+    
+    let maxTopHeight: CGFloat = 106.0
+    let minTopHeight: CGFloat = 0.0
+    
+    var previousScrollOffSet: CGFloat = 0.0
+    
     @IBOutlet weak var vTop: UIView!
     @IBOutlet weak var v1Search: UIView!
     @IBOutlet weak var v2Search: UIView!
@@ -36,13 +56,18 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("scroll \(previousScrollOffSet)")
+        print(scrollView.contentOffset.y)
         configUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        headerHeightConstraint.constant = maxHeaderHeight
+        topHeightConstraint.constant = maxTopHeight
+        iconHeaderHeightConstraint.constant = 32.0
+        updateHeader()
     }
 
     func configUI() {
@@ -53,6 +78,7 @@ class HomeViewController: UIViewController {
         v1Search.layer.cornerRadius = 30
         v2Search.layer.cornerRadius = 25
         
+        scrollView.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "AdsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AdsCollectionViewCell")
@@ -166,6 +192,57 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
+        let scrollMaxViewHeight = scrollView.frame.height + containerHeaderHeightConstraint.constant - minContainerHeaderHeight
+        return scrollView.contentSize.height > scrollMaxViewHeight
+    }
+    
+    func setScrollPosition(_ position: CGFloat) {
+        scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: position)
+    }
+    
+    func scrollViewDidStopScrolling() {
+        let range = maxContainerHeaderHeight - minContainerHeaderHeight
+        let midPoint = minContainerHeaderHeight + range/2
+        
+        if containerHeaderHeightConstraint.constant > midPoint {
+            expandHeader()
+        } else {
+            collapseHeader()
+        }
+    }
+    
+    func collapseHeader() {
+        view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.containerHeaderHeightConstraint.constant = self.minContainerHeaderHeight
+            self.headerHeightConstraint.constant = self.minHeaderHeight
+            self.topHeightConstraint.constant = self.minTopHeight
+            self.updateHeader()
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func expandHeader() {
+        view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.containerHeaderHeightConstraint.constant = self.maxContainerHeaderHeight
+            self.headerHeightConstraint.constant = self.maxTopHeight
+            self.topHeightConstraint.constant = self.maxTopHeight
+            self.updateHeader()
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func updateHeader() {
+        let range = maxContainerHeaderHeight - minContainerHeaderHeight
+        let openAmount = containerHeaderHeightConstraint.constant - minContainerHeaderHeight
+        let percentage = openAmount/range
+        stHeader.alpha = percentage
+        progressView.alpha = percentage
+        vTop.alpha = percentage
+    }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -189,5 +266,57 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: collectionView.bounds.width/1.5, height: collectionView.bounds.height)
+    }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollDiff = scrollView.contentOffset.y - previousScrollOffSet
+        
+        let absoluteTop: CGFloat = 0.0
+        let absoluteBottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height
+        let isScrollingDown = scrollDiff > 0 && scrollView.contentOffset.y > absoluteTop
+        let isScrollingUp = scrollDiff < 0 && scrollView.contentOffset.y < absoluteBottom
+        
+        guard canAnimateHeader(scrollView) else { return }
+        
+        var newContainerHeaderHeight = containerHeaderHeightConstraint.constant
+        var newHeaderHeight = headerHeightConstraint.constant
+        var newTopHeight = topHeightConstraint.constant
+        var newIconHeight = iconHeaderHeightConstraint.constant
+        
+        if isScrollingDown {
+            newContainerHeaderHeight = max(minContainerHeaderHeight, containerHeaderHeightConstraint.constant - abs(scrollDiff))
+            newHeaderHeight = max(minHeaderHeight, headerHeightConstraint.constant - abs(scrollDiff))
+            newTopHeight = max(minTopHeight, topHeightConstraint.constant - abs(scrollDiff))
+            newIconHeight = max(24.0, iconHeaderHeightConstraint.constant - abs(scrollDiff))
+        } else if isScrollingUp {
+            newContainerHeaderHeight = min(maxContainerHeaderHeight, containerHeaderHeightConstraint.constant + abs(scrollDiff))
+            newHeaderHeight = min(maxHeaderHeight, headerHeightConstraint.constant + abs(scrollDiff))
+            newTopHeight = min(maxTopHeight, topHeightConstraint.constant + abs(scrollDiff))
+            newIconHeight = min(32.0, iconHeaderHeightConstraint.constant+abs(scrollDiff))
+        }
+        
+        if newContainerHeaderHeight != containerHeaderHeightConstraint.constant || newHeaderHeight != headerHeightConstraint.constant || newTopHeight != topHeightConstraint.constant
+        {
+            containerHeaderHeightConstraint.constant = newContainerHeaderHeight
+            headerHeightConstraint.constant = newHeaderHeight
+            topHeightConstraint.constant = newTopHeight
+            iconHeaderHeightConstraint.constant = newIconHeight
+            updateHeader()
+            setScrollPosition(previousScrollOffSet)
+        }
+        previousScrollOffSet = scrollView.contentOffset.y
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollViewDidStopScrolling()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewDidStopScrolling()
+        }
     }
 }

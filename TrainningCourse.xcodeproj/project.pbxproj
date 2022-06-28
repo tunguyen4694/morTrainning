@@ -46,6 +46,8 @@
 		DA2BA7DB286473BF00EC02BA /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2BA7DA286473BF00EC02BA /* AccountVC.swift */; };
 		DA2BA7DD286473CD00EC02BA /* AccountVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2BA7DC286473CD00EC02BA /* AccountVC.storyboard */; };
 		DA3FF93F2869BA46005FD717 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DA3FF93E2869BA46005FD717 /* MultiSlider */; };
+		DA3FF941286A98D5005FD717 /* TestVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3FF940286A98D5005FD717 /* TestVC.storyboard */; };
+		DA3FF943286A98E2005FD717 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FF942286A98E2005FD717 /* TestVC.swift */; };
 		DABF52BD28641DD000546A18 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52BC28641DD000546A18 /* HomeVC.swift */; };
 		DABF52BF28641DE300546A18 /* HomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DABF52BE28641DE300546A18 /* HomeVC.storyboard */; };
 		DABF52C12864234800546A18 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52C02864234800546A18 /* Extention.swift */; };
@@ -129,6 +131,8 @@
 		DA1E6EDF28694839001889D0 /* MyCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCourseVC.swift; sourceTree = "<group>"; };
 		DA2BA7DA286473BF00EC02BA /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		DA2BA7DC286473CD00EC02BA /* AccountVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountVC.storyboard; sourceTree = "<group>"; };
+		DA3FF940286A98D5005FD717 /* TestVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestVC.storyboard; sourceTree = "<group>"; };
+		DA3FF942286A98E2005FD717 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		DABF52BC28641DD000546A18 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		DABF52BE28641DE300546A18 /* HomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeVC.storyboard; sourceTree = "<group>"; };
 		DABF52C02864234800546A18 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 		84795B3B285ACDA9006AA068 = {
 			isa = PBXGroup;
 			children = (
+				DA3FF942286A98E2005FD717 /* TestVC.swift */,
+				DA3FF940286A98D5005FD717 /* TestVC.storyboard */,
 				DABF52C02864234800546A18 /* Extention.swift */,
 				A5BAF3DB2862BC1A00A81519 /* GoogleService-Info.plist */,
 				84795B46285ACDA9006AA068 /* TrainningCourse */,
@@ -504,6 +510,7 @@
 			files = (
 				84795B54285ACDAA006AA068 /* LaunchScreen.storyboard in Resources */,
 				A5843CE528619F1B00747E04 /* PhoneCollectionViewCell.xib in Resources */,
+				DA3FF941286A98D5005FD717 /* TestVC.storyboard in Resources */,
 				DAC722A72865A80900B57EE7 /* CourseVC.storyboard in Resources */,
 				DABF52BF28641DE300546A18 /* HomeVC.storyboard in Resources */,
 				DA1E6ED62865BB43001889D0 /* SearchVC.storyboard in Resources */,
@@ -665,6 +672,7 @@
 				DAC722992865844D00B57EE7 /* CourseVC.swift in Sources */,
 				84795B84285AFF97006AA068 /* SignUpVC.swift in Sources */,
 				84795B48285ACDA9006AA068 /* AppDelegate.swift in Sources */,
+				DA3FF943286A98E2005FD717 /* TestVC.swift in Sources */,
 				A5843CE02861984F00747E04 /* LoginWithPhone.swift in Sources */,
 				DAC722A128659D8000B57EE7 /* ModelCourse.swift in Sources */,
 				DA1E6ED02865B333001889D0 /* MessageVC.swift in Sources */,

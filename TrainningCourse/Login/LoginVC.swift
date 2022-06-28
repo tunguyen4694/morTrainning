@@ -33,12 +33,15 @@ class LoginViewController: UIViewController {
     
     let signInConfig = GIDConfiguration(clientID: "413837536092-qi02fsirc5gl6gnhr5t9700bgnc1quee.apps.googleusercontent.com")
     
+    var previousScrollOffset: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
         
         scrollView.alwaysBounceVertical = true
+        scrollView.bounces = false
         scrollView.showsVerticalScrollIndicator = false
         
         formView.layer.cornerRadius = 10
@@ -57,7 +60,7 @@ class LoginViewController: UIViewController {
         loginView.backgroundColor = .mainColor()
         
         passwordTextField.isSecureTextEntry = true
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -187,6 +190,5 @@ class LoginViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
 }
 
