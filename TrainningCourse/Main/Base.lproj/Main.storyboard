@@ -54,7 +54,6 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.23921568627450979" green="0.36078431372549019" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Ts3-2n-Qq8" secondAttribute="bottom" id="6LX-6l-eQF"/>
                                             <constraint firstItem="Ts3-2n-Qq8" firstAttribute="leading" secondItem="OoK-8x-YNd" secondAttribute="leading" id="FTp-mH-zk2"/>
@@ -84,7 +83,6 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="dpw-lx-W5z" firstAttribute="leading" secondItem="ipf-nD-ePM" secondAttribute="leading" id="6c4-CD-07h"/>
                                             <constraint firstItem="ozP-0K-LDO" firstAttribute="centerY" secondItem="ipf-nD-ePM" secondAttribute="centerY" id="UOR-iv-MqG"/>

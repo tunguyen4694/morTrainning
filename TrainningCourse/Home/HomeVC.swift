@@ -12,15 +12,11 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var stHeader: UIStackView!
 
-    @IBOutlet weak var containerHeaderHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var iconHeaderHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var topHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var progressView: UIProgressView!
-    
-    let maxContainerHeaderHeight: CGFloat = 250
-    let minContainerHeaderHeight: CGFloat = 88
     
     let maxHeaderHeight: CGFloat = 153.0
     let minHeaderHeight: CGFloat = 44.0
@@ -56,8 +52,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("scroll \(previousScrollOffSet)")
-        print(scrollView.contentOffset.y)
         configUI()
     }
     
@@ -193,7 +187,7 @@ class HomeViewController: UIViewController {
     }
     
     func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
-        let scrollMaxViewHeight = scrollView.frame.height + containerHeaderHeightConstraint.constant - minContainerHeaderHeight
+        let scrollMaxViewHeight = scrollView.frame.height + headerHeightConstraint.constant - minHeaderHeight
         return scrollView.contentSize.height > scrollMaxViewHeight
     }
     
@@ -202,10 +196,10 @@ class HomeViewController: UIViewController {
     }
     
     func scrollViewDidStopScrolling() {
-        let range = maxContainerHeaderHeight - minContainerHeaderHeight
-        let midPoint = minContainerHeaderHeight + range/2
+        let range = maxTopHeight - minTopHeight
+        let midPoint = minTopHeight + range/2
         
-        if containerHeaderHeightConstraint.constant > midPoint {
+        if topHeightConstraint.constant > midPoint {
             expandHeader()
         } else {
             collapseHeader()
@@ -215,9 +209,9 @@ class HomeViewController: UIViewController {
     func collapseHeader() {
         view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
-            self.containerHeaderHeightConstraint.constant = self.minContainerHeaderHeight
             self.headerHeightConstraint.constant = self.minHeaderHeight
             self.topHeightConstraint.constant = self.minTopHeight
+            self.iconHeaderHeightConstraint.constant = 24
             self.updateHeader()
             self.view.layoutIfNeeded()
         })
@@ -226,17 +220,17 @@ class HomeViewController: UIViewController {
     func expandHeader() {
         view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
-            self.containerHeaderHeightConstraint.constant = self.maxContainerHeaderHeight
-            self.headerHeightConstraint.constant = self.maxTopHeight
+            self.headerHeightConstraint.constant = self.maxHeaderHeight
             self.topHeightConstraint.constant = self.maxTopHeight
+            self.iconHeaderHeightConstraint.constant = 32
             self.updateHeader()
             self.view.layoutIfNeeded()
         })
     }
     
     func updateHeader() {
-        let range = maxContainerHeaderHeight - minContainerHeaderHeight
-        let openAmount = containerHeaderHeightConstraint.constant - minContainerHeaderHeight
+        let range = maxTopHeight - minTopHeight
+        let openAmount = topHeightConstraint.constant - minTopHeight
         let percentage = openAmount/range
         stHeader.alpha = percentage
         progressView.alpha = percentage
@@ -280,26 +274,23 @@ extension HomeViewController: UIScrollViewDelegate {
         
         guard canAnimateHeader(scrollView) else { return }
         
-        var newContainerHeaderHeight = containerHeaderHeightConstraint.constant
         var newHeaderHeight = headerHeightConstraint.constant
         var newTopHeight = topHeightConstraint.constant
         var newIconHeight = iconHeaderHeightConstraint.constant
         
         if isScrollingDown {
-            newContainerHeaderHeight = max(minContainerHeaderHeight, containerHeaderHeightConstraint.constant - abs(scrollDiff))
             newHeaderHeight = max(minHeaderHeight, headerHeightConstraint.constant - abs(scrollDiff))
             newTopHeight = max(minTopHeight, topHeightConstraint.constant - abs(scrollDiff))
             newIconHeight = max(24.0, iconHeaderHeightConstraint.constant - abs(scrollDiff))
         } else if isScrollingUp {
-            newContainerHeaderHeight = min(maxContainerHeaderHeight, containerHeaderHeightConstraint.constant + abs(scrollDiff))
             newHeaderHeight = min(maxHeaderHeight, headerHeightConstraint.constant + abs(scrollDiff))
             newTopHeight = min(maxTopHeight, topHeightConstraint.constant + abs(scrollDiff))
-            newIconHeight = min(32.0, iconHeaderHeightConstraint.constant+abs(scrollDiff))
+            newIconHeight = min(32.0, iconHeaderHeightConstraint.constant + abs(scrollDiff))
         }
         
-        if newContainerHeaderHeight != containerHeaderHeightConstraint.constant || newHeaderHeight != headerHeightConstraint.constant || newTopHeight != topHeightConstraint.constant
+        if newHeaderHeight != headerHeightConstraint.constant
+            //|| newTopHeight != topHeightConstraint.constant
         {
-            containerHeaderHeightConstraint.constant = newContainerHeaderHeight
             headerHeightConstraint.constant = newHeaderHeight
             topHeightConstraint.constant = newTopHeight
             iconHeaderHeightConstraint.constant = newIconHeight

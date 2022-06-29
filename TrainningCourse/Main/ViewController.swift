@@ -58,25 +58,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onSignUp(_ sender: Any) {
-//        let sb = UIStoryboard(name: "SignUpVC", bundle: nil)
-//        if let vc = sb.instantiateInitialViewController() as? SignUpViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
-        if let vc = sb.instantiateInitialViewController() as? HomeViewController {
+        let sb = UIStoryboard(name: "SignUpVC", bundle: nil)
+        if let vc = sb.instantiateInitialViewController() as? SignUpViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
+//        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
+//        if let vc = sb.instantiateInitialViewController() as? HomeViewController {
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     
     @IBAction func onLogin(_ sender: Any) {
-//        let sb = UIStoryboard(name: "LoginVC", bundle: nil)
-//        if let vc = sb.instantiateInitialViewController() as? LoginViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-        let sb = UIStoryboard(name: "TestVC", bundle: nil)
-        if let vc = sb.instantiateInitialViewController() as? TestViewController {
-        navigationController?.pushViewController(vc, animated: true)
+        let sb = UIStoryboard(name: "LoginVC", bundle: nil)
+        if let vc = sb.instantiateInitialViewController() as? LoginViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
         }
+//        let sb = UIStoryboard(name: "TestVC", bundle: nil)
+//        if let vc = sb.instantiateInitialViewController() as? TestViewController {
+//        navigationController?.pushViewController(vc, animated: true)
+//        }
     }
 }
 

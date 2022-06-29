@@ -10,50 +10,56 @@ import UIKit
 
 class TestViewController: UIViewController {
     
-    @IBOutlet weak var stHeader: UIStackView!
-    @IBOutlet weak var heightHeaderConstraint: NSLayoutConstraint!
-    @IBOutlet weak var heightTopContraint: NSLayoutConstraint!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var iconHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var vTop: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    var datas: [Course] = courseData()
     
-    let maxHeaderHeight: CGFloat = 153
-    let minHeaderHeight: CGFloat = 44
+    @IBOutlet weak var lblHeader: UILabel!
+    @IBOutlet weak var imgHeader: UIImageView!
+    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchTrailingConstraint: NSLayoutConstraint!
     
-    let maxTopHeight: CGFloat = 106
-    let minTopHeight: CGFloat = 0
+    @IBOutlet weak var midHeightConstraint: NSLayoutConstraint!
     
+    let maxHeaderHeight: CGFloat = 120
+    let minHeaderHeight: CGFloat = 60
+    let maxMidHeight: CGFloat = 220
+    let minMidHeight: CGFloat = 44
     var previousScrollOffSet: CGFloat = 0
+    
+    @IBOutlet weak var stMid: UIStackView!
+    @IBOutlet weak var lblMid: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.delegate = self
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "CourseTableViewCell", bundle: nil), forCellReuseIdentifier: "CourseTableViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        heightHeaderConstraint.constant = maxHeaderHeight
-        heightTopContraint.constant = maxTopHeight
-        iconHeightConstraint.constant = 32
+        headerHeightConstraint.constant = maxHeaderHeight
+        midHeightConstraint.constant = maxMidHeight
+       
         updateHeader()
     }
     
     private func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
-        let scrollMaxViewHeight = scrollView.frame.height + heightHeaderConstraint.constant - minHeaderHeight
+        let scrollMaxViewHeight = scrollView.frame.height + headerHeightConstraint.constant - minHeaderHeight
         return scrollView.contentSize.height > scrollMaxViewHeight
     }
     
     func setScrollPosition(_ position: CGFloat) {
-        scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: position)
+        tableView.contentOffset = CGPoint(x: tableView.contentOffset.x, y: position)
     }
     
     func scrollViewDidStopScrolling() {
+        // Tính tỉ lệ theo height constraint view nhỏ nhất
         let range = maxHeaderHeight - minHeaderHeight
         let midPoint = minHeaderHeight + range/2
         
-        if heightHeaderConstraint.constant > midPoint {
+        if headerHeightConstraint.constant > midPoint {
             expandHeader()
         } else {
             collapseHeader()
@@ -63,9 +69,8 @@ class TestViewController: UIViewController {
     func collapseHeader() {
         view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
-            self.heightHeaderConstraint.constant = self.minHeaderHeight
-            self.heightTopContraint.constant = self.minTopHeight
-            self.iconHeightConstraint.constant = 24
+            self.headerHeightConstraint.constant = self.minHeaderHeight
+            self.midHeightConstraint.constant = self.minMidHeight
             self.updateHeader()
             self.view.layoutIfNeeded()
         })
@@ -74,25 +79,43 @@ class TestViewController: UIViewController {
     func expandHeader() {
         view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
-            self.heightHeaderConstraint.constant = self.maxHeaderHeight
-            self.heightTopContraint.constant = self.maxTopHeight
-            self.iconHeightConstraint.constant = 32
+            self.headerHeightConstraint.constant = self.maxHeaderHeight
+            self.midHeightConstraint.constant = self.maxMidHeight
             self.updateHeader()
             self.view.layoutIfNeeded()
         })
     }
     
     func updateHeader() {
+        // Tính tỉ lệ theo height constraint view nhỏ nhất
         let range = maxHeaderHeight - minHeaderHeight
-        let openAmount = heightHeaderConstraint.constant - minHeaderHeight
+        let openAmount = headerHeightConstraint.constant - minHeaderHeight
         let percentage = openAmount/range
-        stHeader.alpha = percentage
-        progressView.alpha = percentage
-        vTop.alpha = percentage
+        let trailingRange = view.frame.width - imgHeader.frame.minX
+        lblHeader.alpha = percentage
+        searchTrailingConstraint.constant = trailingRange*(1 - percentage) + 8
+        stMid.alpha = percentage
+        lblMid.alpha = percentage
     }
 }
 
-extension TestViewController: UIScrollViewDelegate {
+extension TestViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseTableViewCell") as! CourseTableViewCell
+        cell.imgCourse.image = datas[indexPath.row].image
+        cell.lblName.text = datas[indexPath.row].name
+        cell.lblTrainer.text = datas[indexPath.row].trainer
+        cell.lblPrix.text = datas[indexPath.row].prix
+        cell.lblTime.text = datas[indexPath.row].time
+        cell.selectionStyle = .none
+        return cell
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollDiff = scrollView.contentOffset.y - previousScrollOffSet
         
@@ -103,23 +126,22 @@ extension TestViewController: UIScrollViewDelegate {
         
         guard canAnimateHeader(scrollView) else { return }
         
-        var newHeaderHeight = heightHeaderConstraint.constant
-        var newTopHeight = heightTopContraint.constant
-        var newIconHeight = iconHeightConstraint.constant
+        var newHeaderHeight = headerHeightConstraint.constant
+        var newMidHeight = midHeightConstraint.constant
         
         if isScrollingDown {
-            newHeaderHeight = max(minHeaderHeight, heightHeaderConstraint.constant - abs(scrollDiff))
-            newTopHeight = max(minTopHeight, heightTopContraint.constant - abs(scrollDiff))
-            newIconHeight = max(24, iconHeightConstraint.constant - abs(scrollDiff))
+            newHeaderHeight = max(minHeaderHeight, headerHeightConstraint.constant - abs(scrollDiff))
+            newMidHeight = max(minMidHeight, midHeightConstraint.constant - abs(scrollDiff))
         } else if isScrollingUp {
-            newHeaderHeight = min(maxHeaderHeight, heightHeaderConstraint.constant + abs(scrollDiff))
-            newTopHeight = min(maxTopHeight, heightTopContraint.constant + abs(scrollDiff))
-            newIconHeight = min(32, iconHeightConstraint.constant + abs(scrollDiff))
+            newHeaderHeight = min(maxHeaderHeight, headerHeightConstraint.constant + abs(scrollDiff))
+            newMidHeight = min(maxMidHeight, midHeightConstraint.constant + abs(scrollDiff))
         }
-        if newHeaderHeight != heightHeaderConstraint.constant && newTopHeight != heightTopContraint.constant {
-            heightHeaderConstraint.constant = newHeaderHeight
-            heightTopContraint.constant = newTopHeight
-            iconHeightConstraint.constant = newIconHeight
+        // if newHeaderHeight != headerHeightConstraint.constant ||
+        // Lấy điều kiện theo height constraint lớn nhất
+        if newMidHeight != midHeightConstraint.constant
+        {
+            headerHeightConstraint.constant = newHeaderHeight
+            midHeightConstraint.constant = newMidHeight
             updateHeader()
             setScrollPosition(previousScrollOffSet)
         }
