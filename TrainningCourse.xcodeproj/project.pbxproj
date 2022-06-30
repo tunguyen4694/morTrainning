@@ -53,9 +53,8 @@
 		DABF52C12864234800546A18 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52C02864234800546A18 /* Extention.swift */; };
 		DABF52C628644D5700546A18 /* AdsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52C428644D5700546A18 /* AdsCollectionViewCell.swift */; };
 		DABF52C728644D5700546A18 /* AdsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DABF52C528644D5700546A18 /* AdsCollectionViewCell.xib */; };
-		DAC7228328655DC100B57EE7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7228228655DC100B57EE7 /* TabBar.swift */; };
 		DAC722932865735200B57EE7 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC722922865735200B57EE7 /* TabItem.swift */; };
-		DAC72295286575B400B57EE7 /* BaseTarBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC72294286575B400B57EE7 /* BaseTarBarController.swift */; };
+		DAC72295286575B400B57EE7 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC72294286575B400B57EE7 /* BaseTabBarController.swift */; };
 		DAC722972865795600B57EE7 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC722962865795600B57EE7 /* CustomTabBar.swift */; };
 		DAC722992865844D00B57EE7 /* CourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC722982865844D00B57EE7 /* CourseVC.swift */; };
 		DAC7229E2865998D00B57EE7 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7229C2865998D00B57EE7 /* CourseTableViewCell.swift */; };
@@ -138,9 +137,8 @@
 		DABF52C02864234800546A18 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		DABF52C428644D5700546A18 /* AdsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCollectionViewCell.swift; sourceTree = "<group>"; };
 		DABF52C528644D5700546A18 /* AdsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdsCollectionViewCell.xib; sourceTree = "<group>"; };
-		DAC7228228655DC100B57EE7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DAC722922865735200B57EE7 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
-		DAC72294286575B400B57EE7 /* BaseTarBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTarBarController.swift; sourceTree = "<group>"; };
+		DAC72294286575B400B57EE7 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		DAC722962865795600B57EE7 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DAC722982865844D00B57EE7 /* CourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseVC.swift; sourceTree = "<group>"; };
 		DAC7229C2865998D00B57EE7 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
@@ -220,9 +218,8 @@
 		84795B46285ACDA9006AA068 /* TrainningCourse */ = {
 			isa = PBXGroup;
 			children = (
-				DAC7228228655DC100B57EE7 /* TabBar.swift */,
 				DAC722922865735200B57EE7 /* TabItem.swift */,
-				DAC72294286575B400B57EE7 /* BaseTarBarController.swift */,
+				DAC72294286575B400B57EE7 /* BaseTabBarController.swift */,
 				DAC722962865795600B57EE7 /* CustomTabBar.swift */,
 				A5843CDD28617BD000747E04 /* TrainningCourse.entitlements */,
 				A5843CE62861CD6B00747E04 /* Delegate */,
@@ -659,9 +656,8 @@
 				84795B89285B159B006AA068 /* BoardingCollectionViewCell.swift in Sources */,
 				A5BAF3E42862EAB900A81519 /* VerifyPhone.swift in Sources */,
 				DAC722972865795600B57EE7 /* CustomTabBar.swift in Sources */,
-				DAC72295286575B400B57EE7 /* BaseTarBarController.swift in Sources */,
+				DAC72295286575B400B57EE7 /* BaseTabBarController.swift in Sources */,
 				A599384A28605A9C00D6489C /* Success.swift in Sources */,
-				DAC7228328655DC100B57EE7 /* TabBar.swift in Sources */,
 				84795B4C285ACDA9006AA068 /* ViewController.swift in Sources */,
 				84795B86285AFFA3006AA068 /* LoginVC.swift in Sources */,
 				DA2BA7DB286473BF00EC02BA /* AccountVC.swift in Sources */,

@@ -130,7 +130,6 @@ class HomeViewController: UIViewController {
         if let vc = sb.instantiateInitialViewController() as? SearchViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
-//        print("Search")
     }
     @IBAction func onMessage(_ sender: Any) {
         vLineHome.backgroundColor = .iconColor()

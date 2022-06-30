@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
         loginView.backgroundColor = .mainColor()
         
         passwordTextField.isSecureTextEntry = true
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,81 +76,81 @@ class LoginViewController: UIViewController {
     @IBAction func signInGoogle(_ sender: Any) {
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
             if let error = error {
-                // ...  
+                // ...
                 return
-              }
-
-              guard
+            }
+            
+            guard
                 let authentication = user?.authentication,
                 let idToken = authentication.idToken
-              else {
+            else {
                 return
-              }
+            }
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                             accessToken: authentication.accessToken)
+                                                           accessToken: authentication.accessToken)
             Auth.auth().signIn(with: credential) { authResult, error in
                 if let error = error {
-                  let authError = error as NSError
-                  if authError.code == AuthErrorCode.secondFactorRequired.rawValue {
-                    // The user is a multi-factor user. Second factor challenge is required.
-                    let resolver = authError
-                      .userInfo[AuthErrorUserInfoMultiFactorResolverKey] as! MultiFactorResolver
-                    var displayNameString = ""
-                    for tmpFactorInfo in resolver.hints {
-                      displayNameString += tmpFactorInfo.displayName ?? ""
-                      displayNameString += " "
+                    let authError = error as NSError
+                    if authError.code == AuthErrorCode.secondFactorRequired.rawValue {
+                        // The user is a multi-factor user. Second factor challenge is required.
+                        let resolver = authError
+                            .userInfo[AuthErrorUserInfoMultiFactorResolverKey] as! MultiFactorResolver
+                        var displayNameString = ""
+                        for tmpFactorInfo in resolver.hints {
+                            displayNameString += tmpFactorInfo.displayName ?? ""
+                            displayNameString += " "
+                        }
+                        
+                    } else {
+                        
+                        return
                     }
-                    
-                  } else {
-                    
+                    // ...
                     return
-                  }
-                  // ...
-                  return
                 }
                 // User is signed in
                 // ...
             }
-          }
+        }
     }
     
     @IBAction func signInFb(_ sender: Any) {
         let loginManager = LoginManager()
-//        loginManager.logOut()
+        //        loginManager.logOut()
         loginManager.logIn(permissions: [.publicProfile, .email], viewController: self, completion: { (LoginResult) in
             switch LoginResult {
-                case .failed(let error):
-                    print("errorrrr", error)
-                case .cancelled:
-                    print("User cancelled login.")
-                case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+            case .failed(let error):
+                print("errorrrr", error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 let credential = FacebookAuthProvider
-                  .credential(withAccessToken: AccessToken.current!.tokenString)
-                    print("Logged in! \(grantedPermissions) - \(declinedPermissions) - \(accessToken)")
+                    .credential(withAccessToken: AccessToken.current!.tokenString)
+                print("Logged in! \(grantedPermissions) - \(declinedPermissions) - \(accessToken)")
                 
                 Auth.auth().signIn(with: credential) { authResult, error in
                     if let error = error {
-                      let authError = error as NSError
-                      if authError.code == AuthErrorCode.secondFactorRequired.rawValue {
-                        // The user is a multi-factor user. Second factor challenge is required.
-                        let resolver = authError
-                          .userInfo[AuthErrorUserInfoMultiFactorResolverKey] as! MultiFactorResolver
-                        var displayNameString = ""
-                        for tmpFactorInfo in resolver.hints {
-                          displayNameString += tmpFactorInfo.displayName ?? ""
-                          displayNameString += " "
+                        let authError = error as NSError
+                        if authError.code == AuthErrorCode.secondFactorRequired.rawValue {
+                            // The user is a multi-factor user. Second factor challenge is required.
+                            let resolver = authError
+                                .userInfo[AuthErrorUserInfoMultiFactorResolverKey] as! MultiFactorResolver
+                            var displayNameString = ""
+                            for tmpFactorInfo in resolver.hints {
+                                displayNameString += tmpFactorInfo.displayName ?? ""
+                                displayNameString += " "
+                            }
+                        } else {
+                            return
                         }
-                      } else {
+                        // ...
                         return
-                      }
-                      // ...
-                      return
                     }
                     // User is signed in
                     // ...
                 }
-                    
+                
             }
         })
     }
@@ -159,10 +159,10 @@ class LoginViewController: UIViewController {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
+            guard let _ = self else { return }
             if let _ = authResult {
                 let sb = UIStoryboard(name: "HomeVC", bundle: nil)
-                if let vc = sb.instantiateInitialViewController() as? HomeViewController {
+                if let vc = sb.instantiateViewController(withIdentifier: "BaseTabBarController") as? BaseTabBarController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
             } else {
