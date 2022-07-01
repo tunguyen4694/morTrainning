@@ -209,10 +209,10 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nyT-tv-JD1">
-                                <rect key="frame" x="20" y="392" width="374" height="470"/>
+                                <rect key="frame" x="20" y="392" width="374" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGl-eM-sho" userLabel="FooterView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGl-eM-sho" userLabel="FooterView">
                                 <rect key="frame" x="0.0" y="782" width="414" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDQ-nn-Hdf" userLabel="ViewBackground">
@@ -256,9 +256,6 @@
                                                                 <rect key="frame" x="0.0" y="16" width="75" height="64"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                <connections>
-                                                                    <action selector="onHome:" destination="SCu-HR-sgO" eventType="touchUpInside" id="1MQ-BT-bRu"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -309,9 +306,6 @@
                                                                 <rect key="frame" x="0.0" y="16" width="74.5" height="64"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                <connections>
-                                                                    <action selector="onCourse:" destination="SCu-HR-sgO" eventType="touchUpInside" id="hyW-M2-6AZ"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -377,9 +371,6 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="80"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                <connections>
-                                                                    <action selector="onSearch:" destination="SCu-HR-sgO" eventType="touchUpInside" id="cIA-yD-P0X"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -428,9 +419,6 @@
                                                                 <rect key="frame" x="0.0" y="16" width="74.5" height="64"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title=""/>
-                                                                <connections>
-                                                                    <action selector="onMessage:" destination="SCu-HR-sgO" eventType="touchUpInside" id="xKH-AQ-W73"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -481,9 +469,6 @@
                                                                 <rect key="frame" x="0.0" y="16" width="75" height="64"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                <connections>
-                                                                    <action selector="onAccount:" destination="SCu-HR-sgO" eventType="touchUpInside" id="2nT-Co-WCj"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -530,11 +515,11 @@
                             <constraint firstItem="HIa-Oz-efo" firstAttribute="leading" secondItem="Qcl-ah-uhI" secondAttribute="leading" id="8zu-Qd-FRn"/>
                             <constraint firstItem="Qcl-ah-uhI" firstAttribute="trailing" secondItem="BCJ-mE-3bZ" secondAttribute="trailing" id="Bb1-6y-bdD"/>
                             <constraint firstItem="BCJ-mE-3bZ" firstAttribute="leading" secondItem="Qcl-ah-uhI" secondAttribute="leading" id="ERM-68-mYL"/>
-                            <constraint firstItem="Qcl-ah-uhI" firstAttribute="bottom" secondItem="nyT-tv-JD1" secondAttribute="bottom" id="GZK-6k-P8K"/>
                             <constraint firstItem="Qcl-ah-uhI" firstAttribute="trailing" secondItem="nyT-tv-JD1" secondAttribute="trailing" constant="20" id="Kqi-H3-Bvv"/>
                             <constraint firstItem="cGl-eM-sho" firstAttribute="leading" secondItem="Qcl-ah-uhI" secondAttribute="leading" id="W2X-il-2um"/>
                             <constraint firstItem="nyT-tv-JD1" firstAttribute="leading" secondItem="Qcl-ah-uhI" secondAttribute="leading" constant="20" id="cFd-EX-HLq"/>
                             <constraint firstItem="Qcl-ah-uhI" firstAttribute="trailing" secondItem="HIa-Oz-efo" secondAttribute="trailing" id="jZR-iC-AKW"/>
+                            <constraint firstItem="IDQ-nn-Hdf" firstAttribute="top" secondItem="nyT-tv-JD1" secondAttribute="bottom" id="peu-yy-e2F"/>
                             <constraint firstItem="cGl-eM-sho" firstAttribute="trailing" secondItem="Qcl-ah-uhI" secondAttribute="trailing" id="u07-M4-lv5"/>
                             <constraint firstItem="HIa-Oz-efo" firstAttribute="top" secondItem="Qcl-ah-uhI" secondAttribute="top" id="xa0-Dk-R3t"/>
                             <constraint firstItem="BCJ-mE-3bZ" firstAttribute="top" secondItem="HIa-Oz-efo" secondAttribute="bottom" id="zUL-GR-2zH"/>
@@ -542,28 +527,14 @@
                     </view>
                     <connections>
                         <outlet property="headerHeightConstraint" destination="3p7-fe-Fwm" id="JE6-16-Kyl"/>
-                        <outlet property="imgAcc" destination="62B-bi-jtn" id="kQY-YM-YrE"/>
-                        <outlet property="imgCourse" destination="Aeu-xr-N4V" id="9M6-Ds-Ffa"/>
-                        <outlet property="imgHome" destination="dNA-Vr-nqV" id="TJg-HY-qGg"/>
-                        <outlet property="imgMessage" destination="RPa-RT-VB9" id="Ry3-ta-qPO"/>
                         <outlet property="imgUser" destination="1kk-4J-Cr2" id="nd5-pt-OJC"/>
-                        <outlet property="lblAcc" destination="gAR-u1-6Sf" id="i9F-gq-3qZ"/>
-                        <outlet property="lblCourse" destination="d2x-jE-Ek1" id="3Dn-lV-y2t"/>
                         <outlet property="lblHeader" destination="tIS-zK-WcC" id="Pk0-mT-smi"/>
-                        <outlet property="lblHome" destination="v72-yS-cBW" id="vfP-L6-aEW"/>
-                        <outlet property="lblMessage" destination="uwT-Yt-FSa" id="jZA-Q0-ltC"/>
                         <outlet property="lblMid" destination="cP4-uH-YAy" id="MHG-Te-eaW"/>
                         <outlet property="midHeightConstrait" destination="bYM-ez-gpB" id="Vtf-L7-xTd"/>
                         <outlet property="searchTrailingConstraint" destination="nxg-GD-efe" id="PZW-kg-4mk"/>
                         <outlet property="stMid" destination="0u9-ys-677" id="GZb-du-H3T"/>
                         <outlet property="tableView" destination="nyT-tv-JD1" id="Png-F9-07r"/>
                         <outlet property="vAll" destination="FY8-O2-T4c" id="DG6-gL-WLU"/>
-                        <outlet property="vBarSearch1" destination="Q6k-4J-hll" id="GeT-LB-Q80"/>
-                        <outlet property="vBarSearch2" destination="iah-8i-kXr" id="nz5-vE-FoN"/>
-                        <outlet property="vLineAcc" destination="vSt-Kj-8TY" id="d0q-ZM-2Ta"/>
-                        <outlet property="vLineCourse" destination="XAm-ZQ-KPD" id="PAn-Z4-ii3"/>
-                        <outlet property="vLineHome" destination="GGh-bl-2z7" id="Jym-9S-oK9"/>
-                        <outlet property="vLineMessage" destination="Gkb-L7-HRr" id="iaJ-fd-e52"/>
                         <outlet property="vNew" destination="g3K-je-U1f" id="5Zd-Uy-rtT"/>
                         <outlet property="vPopular" destination="3kX-ET-0Wr" id="LmA-7q-Ggc"/>
                         <outlet property="vSearch" destination="Swd-TB-a5S" id="FQx-eN-4gQ"/>

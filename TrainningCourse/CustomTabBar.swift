@@ -11,14 +11,8 @@ class CustomTabBar: UIView {
     var itemTapped: ((_ tab: Int) -> Void)?
     var activeItem: Int = 0
     
-    var vTabBar = UIView()
-    var imgTabBar = UIImageView()
-    var lblTabBar = UILabel()
-    //    let itemTitleLabel = UILabel()
-    //    let itemImageView = UIImageView()
-    
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: frame)        // Frame Tab Bar mặc định
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,12 +26,12 @@ class CustomTabBar: UIView {
         
         // Khởi tạo từng tab bar item
         for index in 0 ..< menuItems.count {
-            let itemWidth = frame.width / CGFloat(menuItems.count)
-            let offsetX = itemWidth * CGFloat(index)
-            let itemView = createTabItem(item: menuItems[index])
+            let itemWidth = frame.width / CGFloat(menuItems.count)      // With cho 1 view item
+            let offsetX = itemWidth * CGFloat(index)                    // contenOffSetX từng view item
+            let itemView = createTabItem(item: menuItems[index])        // Khởi tạo Item
             itemView.translatesAutoresizingMaskIntoConstraints = false
             itemView.clipsToBounds = true
-            itemView.tag = index
+            itemView.tag = index                                        // Set tag item
             
             addSubview(itemView)
             NSLayoutConstraint.activate([
@@ -46,12 +40,12 @@ class CustomTabBar: UIView {
                 itemView.topAnchor.constraint(equalTo: topAnchor),
             ])
         }
-        
         setNeedsLayout()
         layoutIfNeeded()
-        activateTab(tab: 0)
+        activateTab(tab: 0)     // Tab 0 mặc định
     }
     
+    // Tạo Tab Item
     func createTabItem(item: TabItem) -> UIView {
         let tabBarItem = UIView()
         tabBarItem.layer.backgroundColor = UIColor.white.cgColor
@@ -81,9 +75,9 @@ class CustomTabBar: UIView {
             itemImageView.widthAnchor.constraint(equalToConstant: 25),
             itemImageView.centerXAnchor.constraint(equalTo: tabBarItem.centerXAnchor),
             itemImageView.topAnchor.constraint(equalTo: tabBarItem.topAnchor, constant: 8),
-            itemImageView.leadingAnchor.constraint(equalTo: tabBarItem.leadingAnchor, constant: 24),
+            itemImageView.leadingAnchor.constraint(equalTo: tabBarItem.leadingAnchor, constant: frame.width/10 - 25/2),
             itemTitleLabel.heightAnchor.constraint(equalToConstant: 13),
-            itemTitleLabel.widthAnchor.constraint(equalTo: tabBarItem.widthAnchor),
+            itemTitleLabel.centerXAnchor.constraint(equalTo: itemImageView.centerXAnchor),
             itemTitleLabel.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: 4),
         ])
         
@@ -93,15 +87,20 @@ class CustomTabBar: UIView {
         return tabBarItem
     }
     
+    // Action Tap
     @objc func handleTap(_ sender: UIGestureRecognizer) {
         switchTab(from: activeItem, to: sender.view!.tag)
     }
     
+    // Switch Tab
     func switchTab(from: Int, to: Int) {
+        if to != 2 {
         deactivateTab(tab: from)
         activateTab(tab: to)
+        }
     }
     
+    // Item tab animate when active
     func activateTab(tab: Int) {
         let tabToActivate = subviews[tab]
         let borderWidth = tabToActivate.frame.width - 20
@@ -125,6 +124,7 @@ class CustomTabBar: UIView {
         }
     }
     
+    // Item tab animate when deactive
     func deactivateTab(tab: Int) {
         let inactiveTab = subviews[tab]
         let layerToRemove = inactiveTab.layer.sublayers?.filter({ $0.name == "Active Border" })

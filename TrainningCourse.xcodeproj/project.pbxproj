@@ -194,7 +194,6 @@
 			children = (
 				DA3FF942286A98E2005FD717 /* TestVC.swift */,
 				DA3FF940286A98D5005FD717 /* TestVC.storyboard */,
-				DABF52C02864234800546A18 /* Extention.swift */,
 				A5BAF3DB2862BC1A00A81519 /* GoogleService-Info.plist */,
 				84795B46285ACDA9006AA068 /* TrainningCourse */,
 				84795B5D285ACDAA006AA068 /* TrainningCourseTests */,
@@ -218,6 +217,7 @@
 		84795B46285ACDA9006AA068 /* TrainningCourse */ = {
 			isa = PBXGroup;
 			children = (
+				DACE3AF8286E877000DF49F7 /* Extension */,
 				DAC722922865735200B57EE7 /* TabItem.swift */,
 				DAC72294286575B400B57EE7 /* BaseTabBarController.swift */,
 				DAC722962865795600B57EE7 /* CustomTabBar.swift */,
@@ -388,6 +388,14 @@
 				DAC722A028659D8000B57EE7 /* ModelCourse.swift */,
 			);
 			path = Course;
+			sourceTree = "<group>";
+		};
+		DACE3AF8286E877000DF49F7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DABF52C02864234800546A18 /* Extention.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

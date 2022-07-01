@@ -177,7 +177,7 @@
                                     <constraint firstAttribute="height" constant="280" id="uqD-Nq-TzJ"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKy-Tn-sgj" userLabel="FooterView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKy-Tn-sgj" userLabel="FooterView">
                                 <rect key="frame" x="0.0" y="782" width="414" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMh-ia-Dht" userLabel="ViewBackground">
@@ -221,9 +221,6 @@
                                                                 <rect key="frame" x="0.0" y="16" width="75" height="64"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                <connections>
-                                                                    <action selector="onHome:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dWC-R6-H7b"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -274,9 +271,6 @@
                                                                 <rect key="frame" x="0.0" y="16" width="74.5" height="64"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title=""/>
-                                                                <connections>
-                                                                    <action selector="onCourse:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dhX-gq-p4A"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -342,9 +336,6 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="80"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                <connections>
-                                                                    <action selector="onSearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eAn-Uz-iLt"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,9 +384,6 @@
                                                                 <rect key="frame" x="0.0" y="16" width="74.5" height="64"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title=""/>
-                                                                <connections>
-                                                                    <action selector="onMessage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eFe-Z5-3ML"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -446,9 +434,6 @@
                                                                 <rect key="frame" x="0.0" y="16" width="75" height="64"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                <connections>
-                                                                    <action selector="onAccount:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kD0-Gf-pDf"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -502,22 +487,6 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AND-NJ-9vO" secondAttribute="trailing" id="kS6-px-2hB"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="imgAcc" destination="ahC-JN-eWd" id="2Lb-2H-NQI"/>
-                        <outlet property="imgCourse" destination="DIU-LJ-Ios" id="JwY-Z7-giF"/>
-                        <outlet property="imgHome" destination="Hv1-mA-mp0" id="Yqx-11-P95"/>
-                        <outlet property="imgMessage" destination="O2m-Uw-49O" id="bns-ux-Fna"/>
-                        <outlet property="lblAcc" destination="t87-Bg-NaE" id="p37-A7-yVq"/>
-                        <outlet property="lblCourse" destination="UAd-Kb-D4G" id="9Td-H6-FBL"/>
-                        <outlet property="lblHome" destination="XgM-Yu-ROC" id="QO7-Rk-ORC"/>
-                        <outlet property="lblMessage" destination="eOr-ND-rNN" id="VVR-Ix-bkR"/>
-                        <outlet property="v1Search" destination="5E7-9s-8ef" id="QZY-hg-awD"/>
-                        <outlet property="v2Search" destination="5bH-EP-d9p" id="INe-VI-OCp"/>
-                        <outlet property="vLineAcc" destination="v8m-JC-0pg" id="i4H-ge-mXs"/>
-                        <outlet property="vLineCourse" destination="mQ2-8M-4ra" id="PGb-Zl-4tX"/>
-                        <outlet property="vLineHome" destination="Ftc-BC-2bp" id="Zuk-ig-ga1"/>
-                        <outlet property="vLineMessage" destination="BZc-Ct-FPl" id="fpN-3d-2QD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

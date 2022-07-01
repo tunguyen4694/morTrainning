@@ -10,7 +10,7 @@ import UIKit
 
 class BaseTabBarController: UITabBarController {
     var customTabBar: CustomTabBar!
-    var tabBarHeight: CGFloat = 60
+    var tabBarHeight: CGFloat = 60      // Custom TabBar Height
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,46 +62,51 @@ class BaseTabBarController: UITabBarController {
         self.selectedIndex = tab
     }
     
+    // Tạo circle button ở giữa
     func setupMiddleButton() {
+        // Tạo 2 circel view bao ngoài button
         let vCircel = UIView()
         let vChildCirle = UIView()
         view.addSubview(vCircel)
-        //            vCircel.frame = .init(x: 0, y: customTabBar.frame.minY - 20, width: 60, height: 60)
+        vCircel.backgroundColor = .white
+        vCircel.layer.cornerRadius = 30
         vCircel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             vCircel.heightAnchor.constraint(equalToConstant: 60),
             vCircel.widthAnchor.constraint(equalToConstant: 60),
-            vCircel.topAnchor.constraint(equalTo: customTabBar.topAnchor, constant: -54),
+            vCircel.topAnchor.constraint(equalTo: customTabBar.topAnchor, constant: -20),
             vCircel.centerXAnchor.constraint(equalTo: customTabBar.centerXAnchor, constant: 0)
         ])
-        view.layoutIfNeeded()
-        //            vCircel.center.x = view.center.x
-        vCircel.backgroundColor = .white
-        vCircel.layer.cornerRadius = 30
+        
         view.addSubview(vChildCirle)
-        vChildCirle.frame = .init(x: 0, y: 0, width: 50, height: 50)
-        vChildCirle.center = vCircel.center
         vChildCirle.backgroundColor = .mainColor()
         vChildCirle.alpha = 0.05
         vChildCirle.layer.cornerRadius = 25
+        vChildCirle.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            vChildCirle.widthAnchor.constraint(equalToConstant: 50),
+            vChildCirle.heightAnchor.constraint(equalToConstant: 50),
+            vChildCirle.centerXAnchor.constraint(equalTo: vCircel.centerXAnchor),
+            vChildCirle.centerYAnchor.constraint(equalTo: vCircel.centerYAnchor)
+        ])
         
-        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        var menuButtonFrame = menuButton.frame
-        menuButtonFrame.origin.y = vCircel.frame.minY + 5
-        menuButtonFrame.origin.x = vCircel.frame.minX + 5
-        menuButton.frame = menuButtonFrame
-        
-        menuButton.backgroundColor = UIColor.clear
-        menuButton.tintColor = .mainColor()
-        menuButton.layer.cornerRadius = menuButtonFrame.height/2
-        view.addSubview(menuButton)
-        
-        menuButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        menuButton.addTarget(self, action: #selector(searchButtonAction(_:)), for: .touchUpInside)
+        let searchButton = UIButton()
+        searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        searchButton.tintColor = .mainColor()
+        view.addSubview(searchButton)
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            searchButton.widthAnchor.constraint(equalToConstant: 50),
+            searchButton.heightAnchor.constraint(equalToConstant: 50),
+            searchButton.centerXAnchor.constraint(equalTo: vChildCirle.centerXAnchor),
+            searchButton.centerYAnchor.constraint(equalTo: vChildCirle.centerYAnchor)
+        ])
+        searchButton.addTarget(self, action: #selector(searchButtonAction(_:)), for: .touchUpInside)
         
         view.layoutIfNeeded()
     }
     
+    // Set action cho button mid vừa tạo
     @objc func searchButtonAction(_ sender: UIButton) {
         let sb = UIStoryboard(name: "SearchVC", bundle: nil)
         if let vc = sb.instantiateInitialViewController() as? SearchViewController {

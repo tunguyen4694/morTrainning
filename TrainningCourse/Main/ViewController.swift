@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextPage: UIPageControl!
     
@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         congig()
     }
     
@@ -43,17 +42,14 @@ class ViewController: UIViewController {
         logInView.layer.cornerRadius = 10
         logInView.layer.borderWidth = 0.5
         logInView.layer.borderColor = UIColor.borderColor().cgColor
-//        collectionView.backgroundColor = .systemCyan
-//        print(collectionView.contentOffset.x)
-        
     }
     
     @IBAction func onSkip(_ sender: Any) {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
             self.collectionView.contentOffset.x += self.view.frame.maxX*2
-                self.skipButton.isHidden = true
-                self.signUpView.isHidden = false
-                self.logInView.isHidden = false
+            self.skipButton.isHidden = true
+            self.signUpView.isHidden = false
+            self.logInView.isHidden = false
         }, completion: nil)
     }
     
@@ -62,22 +58,22 @@ class ViewController: UIViewController {
         if let vc = sb.instantiateInitialViewController() as? SignUpViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
-//        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
-//        if let vc = sb.instantiateInitialViewController() as? HomeViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
+        //        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
+        //        if let vc = sb.instantiateInitialViewController() as? HomeViewController {
+        //            self.navigationController?.pushViewController(vc, animated: true)
+        //        }
     }
     
     @IBAction func onLogin(_ sender: Any) {
-//        let sb = UIStoryboard(name: "LoginVC", bundle: nil)
-//        if let vc = sb.instantiateInitialViewController() as? LoginViewController {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
-        if let vc = sb.instantiateViewController(withIdentifier: "BaseTabBarController") as? BaseTabBarController {
+        let sb = UIStoryboard(name: "LoginVC", bundle: nil)
+        if let vc = sb.instantiateInitialViewController() as? LoginViewController {
             self.navigationController?.pushViewController(vc, animated: true)
-        
         }
+        //        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
+        //        if let vc = sb.instantiateViewController(withIdentifier: "BaseTabBarController") as? BaseTabBarController {
+        //            self.navigationController?.pushViewController(vc, animated: true)
+        //
+        //        }
     }
 }
 

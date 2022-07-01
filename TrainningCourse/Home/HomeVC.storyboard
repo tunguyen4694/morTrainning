@@ -158,7 +158,7 @@
                                             <constraint firstItem="Xox-Mb-R2t" firstAttribute="top" secondItem="bbR-hi-Kiy" secondAttribute="bottom" constant="30" id="z57-Iq-ZcZ"/>
                                         </constraints>
                                     </scrollView>
-                                    <view contentMode="scaleToFill" restorationIdentifier="`" translatesAutoresizingMaskIntoConstraints="NO" id="qqP-6i-CDb" userLabel="FooterView" customClass="AccountView">
+                                    <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="`" translatesAutoresizingMaskIntoConstraints="NO" id="qqP-6i-CDb" userLabel="FooterView" customClass="AccountView">
                                         <rect key="frame" x="0.0" y="536" width="414" height="80"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhd-Ux-mRA" userLabel="ViewBackground">
@@ -202,9 +202,6 @@
                                                                         <rect key="frame" x="0.0" y="16" width="74.666666666666671" height="64"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
-                                                                        <connections>
-                                                                            <action selector="onHome:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0UF-fV-hvy"/>
-                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,9 +252,6 @@
                                                                         <rect key="frame" x="0.0" y="16" width="75" height="64"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
-                                                                        <connections>
-                                                                            <action selector="onCourse:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="anG-dl-bY6"/>
-                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -323,9 +317,6 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="80"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
-                                                                        <connections>
-                                                                            <action selector="onSearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lnm-os-MNE"/>
-                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -374,9 +365,6 @@
                                                                         <rect key="frame" x="0.0" y="16" width="75" height="64"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain" title=""/>
-                                                                        <connections>
-                                                                            <action selector="onMessage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wCx-Cg-Ru0"/>
-                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -427,9 +415,6 @@
                                                                         <rect key="frame" x="0.0" y="16" width="74.666666666666671" height="64"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
-                                                                        <connections>
-                                                                            <action selector="onAccount:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="I5D-pl-wc3"/>
-                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -641,24 +626,10 @@
                         <outlet property="collectionView" destination="T3q-gx-XM2" id="hnc-QX-1hi"/>
                         <outlet property="headerHeightConstraint" destination="Khg-98-3cw" id="akH-wm-etw"/>
                         <outlet property="iconHeaderHeightConstraint" destination="eFJ-Ux-raU" id="0YE-zG-Itl"/>
-                        <outlet property="imgAcc" destination="4aj-b4-yee" id="Myk-8N-JlU"/>
-                        <outlet property="imgCourse" destination="JIz-va-s5N" id="FRz-ku-Ygg"/>
-                        <outlet property="imgHome" destination="gMp-Xn-cJP" id="THO-fR-aAs"/>
-                        <outlet property="imgMessage" destination="pWL-rQ-StI" id="32M-f3-aCA"/>
-                        <outlet property="lblAcc" destination="8rI-ng-jfi" id="d2h-bh-NQ4"/>
-                        <outlet property="lblCourse" destination="fzt-ST-qen" id="D9c-Vk-FWI"/>
-                        <outlet property="lblHome" destination="4yP-vf-hc0" id="KdY-Ch-o5R"/>
-                        <outlet property="lblMessage" destination="75k-JE-BFf" id="5bs-Dv-n7b"/>
                         <outlet property="progressView" destination="cRp-g3-0dl" id="hNO-sc-bSA"/>
                         <outlet property="scrollView" destination="wZX-0g-opY" id="FQK-76-r1b"/>
                         <outlet property="stHeader" destination="Oto-91-aPd" id="V0D-8U-Q4S"/>
                         <outlet property="topHeightConstraint" destination="grI-Xx-rCS" id="gu3-0X-JAL"/>
-                        <outlet property="v1Search" destination="Be9-k7-KRv" id="Iya-hf-pdB"/>
-                        <outlet property="v2Search" destination="epB-rr-Ifi" id="Pzu-RO-pnC"/>
-                        <outlet property="vLineAcc" destination="aSS-jM-U12" id="HYo-b9-53Y"/>
-                        <outlet property="vLineCourse" destination="kRA-Uo-t2Z" id="bg5-Qb-oC3"/>
-                        <outlet property="vLineHome" destination="BR0-gG-UHL" id="br1-6c-kgT"/>
-                        <outlet property="vLineMessage" destination="BKY-Iv-wO0" id="Sxb-8L-UYk"/>
                         <outlet property="vTop" destination="ATN-6b-2PJ" id="hUL-5A-W94"/>
                     </connections>
                 </viewController>
