@@ -65,15 +65,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        let sb = UIStoryboard(name: "LoginVC", bundle: nil)
-        if let vc = sb.instantiateInitialViewController() as? LoginViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        //        let sb = UIStoryboard(name: "HomeVC", bundle: nil)
-        //        if let vc = sb.instantiateViewController(withIdentifier: "BaseTabBarController") as? BaseTabBarController {
-        //            self.navigationController?.pushViewController(vc, animated: true)
-        //
-        //        }
+//        let sb = UIStoryboard(name: "LoginVC", bundle: nil)
+//        if let vc = sb.instantiateInitialViewController() as? LoginViewController {
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+                let sb = UIStoryboard(name: "TestTabBarVC", bundle: nil)
+                if let vc = sb.instantiateViewController(withIdentifier: "TestTabBarController") as? TestTabBarController {
+                    self.navigationController?.pushViewController(vc, animated: true)
+        
+                }
     }
 }
 

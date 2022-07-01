@@ -11,6 +11,8 @@ import UIKit
 class CourseViewController: UIViewController {
     
     @IBOutlet weak var vSearch: UIView!
+    @IBOutlet weak var tfSearch: UITextField!
+    @IBOutlet weak var btnDelText: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var vAll: UIView!
     @IBOutlet weak var vPopular: UIView!
@@ -35,12 +37,12 @@ class CourseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         congigUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
         headerHeightConstraint.constant = maxHeaderHeight
         midHeightConstrait.constant = maxMidHeight
         updateHeader()
@@ -53,9 +55,14 @@ class CourseViewController: UIViewController {
         vNew.layer.cornerRadius = 10
         
         tableView.separatorStyle = .none
+        tfSearch.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CourseTableViewCell", bundle: nil), forCellReuseIdentifier: "CourseTableViewCell")
+    }
+    
+    @IBAction func delTfSearch(_ sender: Any) {
+        tfSearch.text = nil
     }
     
     func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
@@ -166,6 +173,16 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             scrollViewDidStopScrolling()
+        }
+    }
+}
+
+extension CourseViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if tfSearch.text != nil {
+            btnDelText.isHidden = false
+        } else {
+            btnDelText.isHidden = true
         }
     }
 }

@@ -94,6 +94,15 @@ class SearchViewController: UIViewController {
             self.contraintBottomVFilter.priority = .defaultLow
         }, completion: nil)
     }
+    
+    @IBAction func onCloseFilter(_ sender: Any) {
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
+            self.transparentView.isHidden = true
+            self.constraintTopVFilter.priority = .defaultHigh
+            self.contraintBottomVFilter.priority = .defaultLow
+        }, completion: nil)
+    }
+    
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

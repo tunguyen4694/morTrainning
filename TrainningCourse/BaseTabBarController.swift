@@ -33,6 +33,26 @@ class BaseTabBarController: UITabBarController {
         var controllers = [UIViewController]()
         // Ẩn tab bar mặc định của hệ thống đi
         tabBar.isHidden = true
+        
+//        let viewLine = UIView()
+//        tabBar.addSubview(viewLine)
+//        viewLine.backgroundColor = .red
+//        viewLine.frame = .init(x: 0, y: 0, width: 100, height: 2)
+//        let vCircel = UIView()
+//        tabBar.clipsToBounds = false
+//        tabBar.addSubview(vCircel)
+//        vCircel.backgroundColor = .red
+//        vCircel.layer.cornerRadius = 30
+//        vCircel.frame = .init(x: 0, y: tabBar.bounds.minY - 20, width: 60, height: 60)
+//        vCircel.center.x = tabBar.center.x
+//        let btnSearch = UIButton()
+//        vCircel.addSubview(btnSearch)
+//        btnSearch.frame = .init(x: 5, y: 5, width: 50, height: 50)
+//        btnSearch.backgroundColor = .mainColor()
+//        btnSearch.setImage(UIImage(systemName: "pencil"), for: .normal)
+//        btnSearch.clipsToBounds = true
+//        btnSearch.layer.cornerRadius = 25
+        
         // Khởi tạo custom tab bar
         customTabBar = CustomTabBar(menuItems: menuItems, frame: frame)
         customTabBar.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +60,7 @@ class BaseTabBarController: UITabBarController {
         customTabBar.itemTapped = changeTab(tab:)
         view.addSubview(customTabBar)
         view.backgroundColor = .white
-        
+
         // Auto layout cho custom tab bar
         NSLayoutConstraint.activate([
             customTabBar.leadingAnchor.constraint(equalTo: tabBar.leadingAnchor),
