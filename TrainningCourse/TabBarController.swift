@@ -65,21 +65,21 @@ class TabBarController: UITabBarController {
         
         let vClear = UIView()
         tabBar.addSubview(vClear)
-        vClear.frame = .init(x: 0, y: tabBar.bounds.minY, width: 52, height: 52)
+        vClear.frame = .init(x: 0, y: tabBar.bounds.minY, width: 60, height: 60)
         vClear.center.x = tabBar.center.x
         vClear.backgroundColor = .clear
         
         let vBigCircle = UIView()
         tabBar.addSubview(vBigCircle)
-        vBigCircle.frame = .init(x: 0, y: tabBar.bounds.minY-20, width: 52, height: 52)
+        vBigCircle.frame = .init(x: 0, y: tabBar.bounds.minY-25, width: 60, height: 60)
         vBigCircle.center.x = tabBar.center.x
-        vBigCircle.layer.cornerRadius = 26
+        vBigCircle.layer.cornerRadius = 30
         vBigCircle.backgroundColor = .white
         
         let vSmallCircle = UIView()
         vBigCircle.addSubview(vSmallCircle)
-        vSmallCircle.frame = .init(x: 5, y: 5, width: 42, height: 42)
-        vSmallCircle.layer.cornerRadius = 21
+        vSmallCircle.frame = .init(x: 5, y: 5, width: 50, height: 50)
+        vSmallCircle.layer.cornerRadius = 25
         vSmallCircle.backgroundColor = .mainColor()
         vSmallCircle.alpha = 0.05
         
@@ -87,7 +87,7 @@ class TabBarController: UITabBarController {
         vBigCircle.addSubview(btnSearch)
         btnSearch.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         btnSearch.tintColor = .mainColor()
-        btnSearch.frame = .init(x: 0, y: 0, width: 52, height: 52)
+        btnSearch.frame = .init(x: 0, y: 0, width: 60, height: 60)
         btnSearch.addTarget(self, action: #selector(onSearch(_:)), for: .touchUpInside)
         
     }
