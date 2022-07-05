@@ -11,7 +11,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    let window = UIApplication.shared.keyWindow
+    let vTopLineTabbar = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +54,15 @@ class TabBarController: UITabBarController {
              NSAttributedString.Key.foregroundColor: UIColor.mainColor()], for: .selected)
         
         configTabBar()
-//        tabBar.items![2].isEnabled = false
+        //        tabBar.items![2].isEnabled = false
     }
     
     func configTabBar() {
+        tabBar.layer.cornerRadius = 10
+        tabBar.addSubview(vTopLineTabbar)
+        vTopLineTabbar.frame = .init(x: tabBar.frame.width/20, y: 0, width: tabBar.frame.width/10, height: 2)
+        vTopLineTabbar.backgroundColor = .mainColor()
+        
         let vClear = UIView()
         tabBar.addSubview(vClear)
         vClear.frame = .init(x: 0, y: tabBar.bounds.minY, width: 52, height: 52)
@@ -85,32 +90,27 @@ class TabBarController: UITabBarController {
         btnSearch.frame = .init(x: 0, y: 0, width: 52, height: 52)
         btnSearch.addTarget(self, action: #selector(onSearch(_:)), for: .touchUpInside)
         
-        UITabBar.appearance().selectionIndicatorImage = getImageWithColorPosition(color: UIColor.mainColor(), size: CGSize(width:(self.view.frame.size.width)/5,height: 52+(self.window?.safeAreaInsets.bottom)!), lineSize: CGSize(width:(self.view.frame.size.width)/5, height:2))
-    }
-    
-    func getImageWithColorPosition(color: UIColor, size: CGSize, lineSize: CGSize) -> UIImage {
-        let rectLine = CGRect(x: (lineSize.width/2+10)/2, y:lineSize.height,width: lineSize.width/2-10,height: lineSize.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        color.setFill()
-        UIRectFill(rectLine)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
     }
     
     @objc func onSearch(_ sender: UIButton) {
         let sb = UIStoryboard(name: "SearchVC", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "SearchVC") as? SearchViewController else { return }
-//        self.navigationController?.present(vc, animated: true)
+        //        self.navigationController?.present(vc, animated: true)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension TabBarController: UITabBarControllerDelegate {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print(selectedIndex)
-//        if item == (self.tabBar.items!)[2]{
-//            tabBar.isHidden = true
-//        }
+        
+        //        if item == (self.tabBar.items!)[2]{
+        //            tabBar.isHidden = true
+        //        }
+        
+        guard let indexOfTab = tabBar.items?.firstIndex(of: item) else{ return }
+        
+        UIView.animate(withDuration: 0.05, delay: 0, options: .curveLinear, animations: {
+            self.vTopLineTabbar.transform = CGAffineTransform(translationX: self.tabBar.frame.width/5*CGFloat(indexOfTab), y: 0)
+        }, completion: nil)
     }
 }
