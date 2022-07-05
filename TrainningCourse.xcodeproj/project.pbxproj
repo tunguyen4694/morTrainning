@@ -48,6 +48,8 @@
 		DA3FF93F2869BA46005FD717 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DA3FF93E2869BA46005FD717 /* MultiSlider */; };
 		DA3FF941286A98D5005FD717 /* TestVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3FF940286A98D5005FD717 /* TestVC.storyboard */; };
 		DA3FF943286A98E2005FD717 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FF942286A98E2005FD717 /* TestVC.swift */; };
+		DAB80C912873ECF200AF9BFE /* MeetUpTBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB80C902873ECF200AF9BFE /* MeetUpTBVC.swift */; };
+		DAB80C932873F15E00AF9BFE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB80C922873F15E00AF9BFE /* TabBarController.swift */; };
 		DABF52BD28641DD000546A18 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52BC28641DD000546A18 /* HomeVC.swift */; };
 		DABF52BF28641DE300546A18 /* HomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DABF52BE28641DE300546A18 /* HomeVC.storyboard */; };
 		DABF52C12864234800546A18 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52C02864234800546A18 /* Extention.swift */; };
@@ -61,9 +63,6 @@
 		DAC7229F2865998D00B57EE7 /* CourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC7229D2865998D00B57EE7 /* CourseTableViewCell.xib */; };
 		DAC722A128659D8000B57EE7 /* ModelCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC722A028659D8000B57EE7 /* ModelCourse.swift */; };
 		DAC722A72865A80900B57EE7 /* CourseVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC722A62865A80900B57EE7 /* CourseVC.storyboard */; };
-		DACE3AFC286ECCA900DF49F7 /* TestTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE3AFB286ECCA900DF49F7 /* TestTabBarController.swift */; };
-		DACE3AFE286ED05A00DF49F7 /* TestTabBarVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DACE3AFD286ED05A00DF49F7 /* TestTabBarVC.storyboard */; };
-		DACE3B00286ED06E00DF49F7 /* TestTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE3AFF286ED06E00DF49F7 /* TestTabBarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +134,8 @@
 		DA2BA7DC286473CD00EC02BA /* AccountVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountVC.storyboard; sourceTree = "<group>"; };
 		DA3FF940286A98D5005FD717 /* TestVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestVC.storyboard; sourceTree = "<group>"; };
 		DA3FF942286A98E2005FD717 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		DAB80C902873ECF200AF9BFE /* MeetUpTBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpTBVC.swift; sourceTree = "<group>"; };
+		DAB80C922873F15E00AF9BFE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DABF52BC28641DD000546A18 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		DABF52BE28641DE300546A18 /* HomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeVC.storyboard; sourceTree = "<group>"; };
 		DABF52C02864234800546A18 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
@@ -148,9 +149,6 @@
 		DAC7229D2865998D00B57EE7 /* CourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTableViewCell.xib; sourceTree = "<group>"; };
 		DAC722A028659D8000B57EE7 /* ModelCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCourse.swift; sourceTree = "<group>"; };
 		DAC722A62865A80900B57EE7 /* CourseVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseVC.storyboard; sourceTree = "<group>"; };
-		DACE3AFB286ECCA900DF49F7 /* TestTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabBarController.swift; sourceTree = "<group>"; };
-		DACE3AFD286ED05A00DF49F7 /* TestTabBarVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestTabBarVC.storyboard; sourceTree = "<group>"; };
-		DACE3AFF286ED06E00DF49F7 /* TestTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabBarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,9 +198,9 @@
 			children = (
 				DA3FF942286A98E2005FD717 /* TestVC.swift */,
 				DA3FF940286A98D5005FD717 /* TestVC.storyboard */,
-				DACE3AFB286ECCA900DF49F7 /* TestTabBarController.swift */,
-				DACE3AFD286ED05A00DF49F7 /* TestTabBarVC.storyboard */,
-				DACE3AFF286ED06E00DF49F7 /* TestTabBarVC.swift */,
+				DAC722922865735200B57EE7 /* TabItem.swift */,
+				DAC72294286575B400B57EE7 /* BaseTabBarController.swift */,
+				DAC722962865795600B57EE7 /* CustomTabBar.swift */,
 				A5BAF3DB2862BC1A00A81519 /* GoogleService-Info.plist */,
 				84795B46285ACDA9006AA068 /* TrainningCourse */,
 				84795B5D285ACDAA006AA068 /* TrainningCourseTests */,
@@ -226,10 +224,8 @@
 		84795B46285ACDA9006AA068 /* TrainningCourse */ = {
 			isa = PBXGroup;
 			children = (
+				DAB80C922873F15E00AF9BFE /* TabBarController.swift */,
 				DACE3AF8286E877000DF49F7 /* Extension */,
-				DAC722922865735200B57EE7 /* TabItem.swift */,
-				DAC72294286575B400B57EE7 /* BaseTabBarController.swift */,
-				DAC722962865795600B57EE7 /* CustomTabBar.swift */,
 				A5843CDD28617BD000747E04 /* TrainningCourse.entitlements */,
 				A5843CE62861CD6B00747E04 /* Delegate */,
 				A5843CE72861CD8E00747E04 /* Main */,
@@ -343,6 +339,7 @@
 			children = (
 				DABF52BC28641DD000546A18 /* HomeVC.swift */,
 				DABF52BE28641DE300546A18 /* HomeVC.storyboard */,
+				DAB80C902873ECF200AF9BFE /* MeetUpTBVC.swift */,
 				DABF52C428644D5700546A18 /* AdsCollectionViewCell.swift */,
 				DABF52C528644D5700546A18 /* AdsCollectionViewCell.xib */,
 			);
@@ -539,7 +536,6 @@
 				84795B8A285B159B006AA068 /* BoardingCollectionViewCell.xib in Resources */,
 				A5843CE12861984F00747E04 /* LoginWithPhone.xib in Resources */,
 				DAC7229F2865998D00B57EE7 /* CourseTableViewCell.xib in Resources */,
-				DACE3AFE286ED05A00DF49F7 /* TestTabBarVC.storyboard in Resources */,
 				A599384B28605A9C00D6489C /* Success.xib in Resources */,
 				DA1E6ECE2865B329001889D0 /* MessageVC.storyboard in Resources */,
 				A5BAF3E52862EAB900A81519 /* VerifyPhone.xib in Resources */,
@@ -674,10 +670,11 @@
 				84795B89285B159B006AA068 /* BoardingCollectionViewCell.swift in Sources */,
 				A5BAF3E42862EAB900A81519 /* VerifyPhone.swift in Sources */,
 				DAC722972865795600B57EE7 /* CustomTabBar.swift in Sources */,
+				DAB80C932873F15E00AF9BFE /* TabBarController.swift in Sources */,
+				DAB80C912873ECF200AF9BFE /* MeetUpTBVC.swift in Sources */,
 				DAC72295286575B400B57EE7 /* BaseTabBarController.swift in Sources */,
 				A599384A28605A9C00D6489C /* Success.swift in Sources */,
 				84795B4C285ACDA9006AA068 /* ViewController.swift in Sources */,
-				DACE3B00286ED06E00DF49F7 /* TestTabBarVC.swift in Sources */,
 				84795B86285AFFA3006AA068 /* LoginVC.swift in Sources */,
 				DA2BA7DB286473BF00EC02BA /* AccountVC.swift in Sources */,
 				DA1E6ED92865BFC4001889D0 /* SearchCollectionViewCell.swift in Sources */,
@@ -693,7 +690,6 @@
 				DA1E6ED02865B333001889D0 /* MessageVC.swift in Sources */,
 				A5843CE428619F1B00747E04 /* PhoneCollectionViewCell.swift in Sources */,
 				84795B4A285ACDA9006AA068 /* SceneDelegate.swift in Sources */,
-				DACE3AFC286ECCA900DF49F7 /* TestTabBarController.swift in Sources */,
 				DAC722932865735200B57EE7 /* TabItem.swift in Sources */,
 				DA1E6ED42865BB39001889D0 /* SearchVC.swift in Sources */,
 				84795B8E285B1DA0006AA068 /* ModelBoarding.swift in Sources */,
