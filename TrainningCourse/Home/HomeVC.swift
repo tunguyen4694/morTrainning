@@ -11,25 +11,26 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var stHeader: UIStackView!
-
+    
     @IBOutlet weak var iconHeaderHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var topHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var progressView: UIProgressView!
     
-    let maxHeaderHeight: CGFloat = 153.0
-    let minHeaderHeight: CGFloat = 44.0
+    let maxHeaderHeight: CGFloat = 206
+    let minHeaderHeight: CGFloat = 44
     
-    let maxTopHeight: CGFloat = 106.0
-    let minTopHeight: CGFloat = 0.0
+    let maxTopHeight: CGFloat = 106
+    let minTopHeight: CGFloat = 0
     
-    var previousScrollOffSet: CGFloat = 0.0
+    var previousScrollOffSet: CGFloat = 0
     
     @IBOutlet weak var vTop: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var tableView: UITableView!
+    
     var arrImage = ["ads", "ads1"]
     
     override func viewDidLoad() {
@@ -45,17 +46,23 @@ class HomeViewController: UIViewController {
         iconHeaderHeightConstraint.constant = 32.0
         updateHeader()
     }
-
+    
     func configUI() {
-        navigationController?.isNavigationBarHidden = true
-        
-        view.backgroundColor = .mainColor()
         vTop.layer.cornerRadius = 10
         
         scrollView.delegate = self
+        scrollView.alwaysBounceVertical = true
+        scrollView.bounces = false
+        scrollView.showsVerticalScrollIndicator = false
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "AdsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AdsCollectionViewCell")
+        
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(MeetUpTBVC.self, forCellReuseIdentifier: "MeetUpTBVC")
     }
     
     @IBAction func onMyCourse(_ sender: Any) {
@@ -66,7 +73,7 @@ class HomeViewController: UIViewController {
     }
     
     func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
-        let scrollMaxViewHeight = scrollView.frame.height + headerHeightConstraint.constant - minHeaderHeight
+        let scrollMaxViewHeight = scrollView.frame.height + topHeightConstraint.constant - minTopHeight
         return scrollView.contentSize.height > scrollMaxViewHeight
     }
     
@@ -168,7 +175,6 @@ extension HomeViewController: UIScrollViewDelegate {
         }
         
         if newHeaderHeight != headerHeightConstraint.constant
-            //|| newTopHeight != topHeightConstraint.constant
         {
             headerHeightConstraint.constant = newHeaderHeight
             topHeightConstraint.constant = newTopHeight
@@ -188,5 +194,22 @@ extension HomeViewController: UIScrollViewDelegate {
         if !decelerate {
             scrollViewDidStopScrolling()
         }
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MeetUpTBVC", for: indexPath) as! MeetUpTBVC
+        cell.imgMeetUp.image = UIImage(named: "meetup")
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 }

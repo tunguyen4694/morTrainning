@@ -162,7 +162,7 @@ class LoginViewController: UIViewController {
             guard let _ = self else { return }
             if let _ = authResult {
                 let sb = UIStoryboard(name: "HomeVC", bundle: nil)
-                if let vc = sb.instantiateViewController(withIdentifier: "BaseTabBarController") as? BaseTabBarController {
+                if let vc = sb.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
             } else {
@@ -175,13 +175,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func securePassword(_ sender: Any) {
-        if securePassImage.image == UIImage(systemName: "eye") {
-            securePassImage.image = UIImage(systemName: "eye.slash")
-            passwordTextField.isSecureTextEntry = false
-        } else {
-            securePassImage.image = UIImage(systemName: "eye")
-            passwordTextField.isSecureTextEntry = true
-        }
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        passwordTextField.isSecureTextEntry ? (securePassImage.image = UIImage(systemName: "eye")) : (securePassImage.image = UIImage(systemName: "eye.slash"))
     }
     
     @IBAction func onNextSignup(_ sender: Any) {
