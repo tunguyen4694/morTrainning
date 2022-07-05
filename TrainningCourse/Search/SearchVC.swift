@@ -42,6 +42,10 @@ class SearchViewController: UIViewController {
         addFilter()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     func addFilter() {
         vFilter.layer.cornerRadius = 20
         vFilter.backgroundColor = .white
@@ -68,41 +72,40 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func onFilterSearch(_ sender: Any) {
-//        let window = UIApplication.shared.keyWindow
-//        transparentView.backgroundColor = UIColor.darkGray
-//        transparentView.frame = self.view.frame
-//        view.addSubview(transparentView)
         transparentView.isHidden = true
-        
+        navigationController?.isNavigationBarHidden = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
         transparentView.addGestureRecognizer(tapGesture)
         
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
-//            self.transparentView.alpha = 0.5
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.transparentView.isHidden = false
-            self.constraintTopVFilter.priority = .defaultLow
-            self.contraintBottomVFilter.priority = .defaultHigh
+            //            self.constraintTopVFilter.priority = .defaultLow
+            //            self.contraintBottomVFilter.priority = .defaultHigh
+            self.vFilter.transform = CGAffineTransform(translationX: 0, y: -self.vFilter.frame.height)
         }, completion: nil)
         print("Filter")
+        
     }
     
     @objc func onClickTransparentView() {
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
-//            self.transparentView.alpha = 0
+        navigationController?.isNavigationBarHidden = false
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.transparentView.isHidden = true
-            self.constraintTopVFilter.priority = .defaultHigh
-            self.contraintBottomVFilter.priority = .defaultLow
+            //            self.constraintTopVFilter.priority = .defaultHigh
+            //            self.contraintBottomVFilter.priority = .defaultLow
+            self.vFilter.transform = CGAffineTransform(translationX: 0, y: self.vFilter.frame.height)
         }, completion: nil)
     }
     
     @IBAction func onCloseFilter(_ sender: Any) {
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
+        navigationController?.isNavigationBarHidden = false
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.transparentView.isHidden = true
-            self.constraintTopVFilter.priority = .defaultHigh
-            self.contraintBottomVFilter.priority = .defaultLow
+            //            self.constraintTopVFilter.priority = .defaultHigh
+            //            self.contraintBottomVFilter.priority = .defaultLow
+            self.vFilter.transform = CGAffineTransform(translationX: 0, y: self.vFilter.frame.height)
         }, completion: nil)
     }
-    
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -121,9 +124,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return 10
     }
     
-//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//        return (collectionView.indexPathsForSelectedItems?.count ?? 0) < 2
-//    }
+    //    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    //        return (collectionView.indexPathsForSelectedItems?.count ?? 0) < 2
+    //    }
 }
 
 extension SearchViewController: UITextFieldDelegate {
