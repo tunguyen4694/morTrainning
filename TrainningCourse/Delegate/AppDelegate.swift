@@ -35,22 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
-        UITabBar.appearance().selectionIndicatorImage = getImageWithColorPosition(color: UIColor.mainColor(), size: CGSize(width:(self.window?.frame.size.width)!/5,height: 49), lineSize: CGSize(width:(self.window?.frame.size.width)!/4, height:2))
         
         return true
-    }
-    
-    func getImageWithColorPosition(color: UIColor, size: CGSize, lineSize: CGSize) -> UIImage {
-        let rect = CGRect(x:0, y: 0, width: size.width, height: size.height)
-        let rectLine = CGRect(x: (lineSize.width/2-10)/2, y:lineSize.height,width: lineSize.width/2-10,height: lineSize.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        UIColor.clear.setFill()
-        UIRectFill(rect)
-        color.setFill()
-        UIRectFill(rectLine)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
     }
     
     func application(
