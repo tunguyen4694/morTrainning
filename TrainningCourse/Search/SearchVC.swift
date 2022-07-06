@@ -72,19 +72,20 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func onFilterSearch(_ sender: Any) {
-        transparentView.isHidden = true
-        navigationController?.isNavigationBarHidden = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
-        transparentView.addGestureRecognizer(tapGesture)
-        
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-            self.transparentView.isHidden = false
-            //            self.constraintTopVFilter.priority = .defaultLow
-            //            self.contraintBottomVFilter.priority = .defaultHigh
-            self.vFilter.transform = CGAffineTransform(translationX: 0, y: -self.vFilter.frame.height)
-        }, completion: nil)
-        print("Filter")
-        
+//        transparentView.isHidden = true
+//        navigationController?.isNavigationBarHidden = true
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
+//        transparentView.addGestureRecognizer(tapGesture)
+//
+//        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+//            self.transparentView.isHidden = false
+//            //            self.constraintTopVFilter.priority = .defaultLow
+//            //            self.contraintBottomVFilter.priority = .defaultHigh
+//            self.vFilter.transform = CGAffineTransform(translationX: 0, y: -self.vFilter.frame.height)
+//        }, completion: nil)
+        let sb = UIStoryboard(name: "FilterVC", bundle: nil)
+        guard let vc = sb.instantiateInitialViewController() as? FilterVC else { return }
+        navigationController?.present(vc, animated: true)
     }
     
     @objc func onClickTransparentView() {
