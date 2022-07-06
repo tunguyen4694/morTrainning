@@ -48,8 +48,17 @@
 		DA3FF93F2869BA46005FD717 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DA3FF93E2869BA46005FD717 /* MultiSlider */; };
 		DA3FF941286A98D5005FD717 /* TestVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3FF940286A98D5005FD717 /* TestVC.storyboard */; };
 		DA3FF943286A98E2005FD717 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FF942286A98E2005FD717 /* TestVC.swift */; };
+		DA98AA5B287538A400434125 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98AA5A287538A400434125 /* FilterVC.swift */; };
+		DA98AA5D287538AE00434125 /* FilterVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA98AA5C287538AE00434125 /* FilterVC.storyboard */; };
+		DA98AA6228753F5B00434125 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98AA6028753F5B00434125 /* CategoriesCollectionViewCell.swift */; };
+		DA98AA6328753F5B00434125 /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA98AA6128753F5B00434125 /* CategoriesCollectionViewCell.xib */; };
+		DA98AA662875408800434125 /* DurationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98AA642875408800434125 /* DurationCollectionViewCell.swift */; };
+		DA98AA672875408800434125 /* DurationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA98AA652875408800434125 /* DurationCollectionViewCell.xib */; };
+		DA98AA6928754C1B00434125 /* LeftAlignmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98AA6828754C1B00434125 /* LeftAlignmentCollectionView.swift */; };
 		DAB80C912873ECF200AF9BFE /* MeetUpTBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB80C902873ECF200AF9BFE /* MeetUpTBVC.swift */; };
 		DAB80C932873F15E00AF9BFE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB80C922873F15E00AF9BFE /* TabBarController.swift */; };
+		DAB80C96287524E800AF9BFE /* MyCourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB80C94287524E800AF9BFE /* MyCourseCollectionViewCell.swift */; };
+		DAB80C97287524E800AF9BFE /* MyCourseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB80C95287524E800AF9BFE /* MyCourseCollectionViewCell.xib */; };
 		DABF52BD28641DD000546A18 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52BC28641DD000546A18 /* HomeVC.swift */; };
 		DABF52BF28641DE300546A18 /* HomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DABF52BE28641DE300546A18 /* HomeVC.storyboard */; };
 		DABF52C12864234800546A18 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF52C02864234800546A18 /* Extention.swift */; };
@@ -134,8 +143,17 @@
 		DA2BA7DC286473CD00EC02BA /* AccountVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountVC.storyboard; sourceTree = "<group>"; };
 		DA3FF940286A98D5005FD717 /* TestVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestVC.storyboard; sourceTree = "<group>"; };
 		DA3FF942286A98E2005FD717 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		DA98AA5A287538A400434125 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		DA98AA5C287538AE00434125 /* FilterVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterVC.storyboard; sourceTree = "<group>"; };
+		DA98AA6028753F5B00434125 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA98AA6128753F5B00434125 /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		DA98AA642875408800434125 /* DurationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA98AA652875408800434125 /* DurationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DurationCollectionViewCell.xib; sourceTree = "<group>"; };
+		DA98AA6828754C1B00434125 /* LeftAlignmentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignmentCollectionView.swift; sourceTree = "<group>"; };
 		DAB80C902873ECF200AF9BFE /* MeetUpTBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpTBVC.swift; sourceTree = "<group>"; };
 		DAB80C922873F15E00AF9BFE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DAB80C94287524E800AF9BFE /* MyCourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCourseCollectionViewCell.swift; sourceTree = "<group>"; };
+		DAB80C95287524E800AF9BFE /* MyCourseCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCourseCollectionViewCell.xib; sourceTree = "<group>"; };
 		DABF52BC28641DD000546A18 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		DABF52BE28641DE300546A18 /* HomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeVC.storyboard; sourceTree = "<group>"; };
 		DABF52C02864234800546A18 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
@@ -239,6 +257,7 @@
 				DAC7229A2865994700B57EE7 /* Account */,
 				DA1E6EE128694E64001889D0 /* MyCourse */,
 				84795B50285ACDAA006AA068 /* Assets.xcassets */,
+				DA98AA592875388A00434125 /* Filter */,
 				84795B52285ACDAA006AA068 /* LaunchScreen.storyboard */,
 				84795B55285ACDAA006AA068 /* Info.plist */,
 			);
@@ -371,8 +390,24 @@
 			children = (
 				DA1E6EDF28694839001889D0 /* MyCourseVC.swift */,
 				DA1E6EDD28694825001889D0 /* MyCourseVC.storyboard */,
+				DAB80C94287524E800AF9BFE /* MyCourseCollectionViewCell.swift */,
+				DAB80C95287524E800AF9BFE /* MyCourseCollectionViewCell.xib */,
 			);
 			path = MyCourse;
+			sourceTree = "<group>";
+		};
+		DA98AA592875388A00434125 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				DA98AA5A287538A400434125 /* FilterVC.swift */,
+				DA98AA5C287538AE00434125 /* FilterVC.storyboard */,
+				DA98AA6028753F5B00434125 /* CategoriesCollectionViewCell.swift */,
+				DA98AA6128753F5B00434125 /* CategoriesCollectionViewCell.xib */,
+				DA98AA642875408800434125 /* DurationCollectionViewCell.swift */,
+				DA98AA652875408800434125 /* DurationCollectionViewCell.xib */,
+				DA98AA6828754C1B00434125 /* LeftAlignmentCollectionView.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		DAC7229A2865994700B57EE7 /* Account */ = {
@@ -522,6 +557,7 @@
 				84795B54285ACDAA006AA068 /* LaunchScreen.storyboard in Resources */,
 				A5843CE528619F1B00747E04 /* PhoneCollectionViewCell.xib in Resources */,
 				DA3FF941286A98D5005FD717 /* TestVC.storyboard in Resources */,
+				DA98AA5D287538AE00434125 /* FilterVC.storyboard in Resources */,
 				DAC722A72865A80900B57EE7 /* CourseVC.storyboard in Resources */,
 				DABF52BF28641DE300546A18 /* HomeVC.storyboard in Resources */,
 				DA1E6ED62865BB43001889D0 /* SearchVC.storyboard in Resources */,
@@ -538,8 +574,11 @@
 				DAC7229F2865998D00B57EE7 /* CourseTableViewCell.xib in Resources */,
 				A599384B28605A9C00D6489C /* Success.xib in Resources */,
 				DA1E6ECE2865B329001889D0 /* MessageVC.storyboard in Resources */,
+				DA98AA6328753F5B00434125 /* CategoriesCollectionViewCell.xib in Resources */,
 				A5BAF3E52862EAB900A81519 /* VerifyPhone.xib in Resources */,
+				DA98AA672875408800434125 /* DurationCollectionViewCell.xib in Resources */,
 				84795B82285AE483006AA068 /* LoginVC.storyboard in Resources */,
+				DAB80C97287524E800AF9BFE /* MyCourseCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,10 +706,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA98AA5B287538A400434125 /* FilterVC.swift in Sources */,
 				84795B89285B159B006AA068 /* BoardingCollectionViewCell.swift in Sources */,
+				DAB80C96287524E800AF9BFE /* MyCourseCollectionViewCell.swift in Sources */,
 				A5BAF3E42862EAB900A81519 /* VerifyPhone.swift in Sources */,
 				DAC722972865795600B57EE7 /* CustomTabBar.swift in Sources */,
 				DAB80C932873F15E00AF9BFE /* TabBarController.swift in Sources */,
+				DA98AA6228753F5B00434125 /* CategoriesCollectionViewCell.swift in Sources */,
 				DAB80C912873ECF200AF9BFE /* MeetUpTBVC.swift in Sources */,
 				DAC72295286575B400B57EE7 /* BaseTabBarController.swift in Sources */,
 				A599384A28605A9C00D6489C /* Success.swift in Sources */,
@@ -680,6 +722,7 @@
 				DA1E6ED92865BFC4001889D0 /* SearchCollectionViewCell.swift in Sources */,
 				DABF52C12864234800546A18 /* Extention.swift in Sources */,
 				DABF52C628644D5700546A18 /* AdsCollectionViewCell.swift in Sources */,
+				DA98AA662875408800434125 /* DurationCollectionViewCell.swift in Sources */,
 				DABF52BD28641DD000546A18 /* HomeVC.swift in Sources */,
 				DAC722992865844D00B57EE7 /* CourseVC.swift in Sources */,
 				84795B84285AFF97006AA068 /* SignUpVC.swift in Sources */,
@@ -687,6 +730,7 @@
 				DA3FF943286A98E2005FD717 /* TestVC.swift in Sources */,
 				A5843CE02861984F00747E04 /* LoginWithPhone.swift in Sources */,
 				DAC722A128659D8000B57EE7 /* ModelCourse.swift in Sources */,
+				DA98AA6928754C1B00434125 /* LeftAlignmentCollectionView.swift in Sources */,
 				DA1E6ED02865B333001889D0 /* MessageVC.swift in Sources */,
 				A5843CE428619F1B00747E04 /* PhoneCollectionViewCell.swift in Sources */,
 				84795B4A285ACDA9006AA068 /* SceneDelegate.swift in Sources */,
@@ -801,7 +845,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -856,7 +900,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -875,6 +919,7 @@
 				CODE_SIGN_ENTITLEMENTS = TrainningCourse/TrainningCourse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V36979MSZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrainningCourse/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -905,6 +950,7 @@
 				CODE_SIGN_ENTITLEMENTS = TrainningCourse/TrainningCourse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V36979MSZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrainningCourse/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
