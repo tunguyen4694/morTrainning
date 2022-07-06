@@ -50,7 +50,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="qrw-xv-Ohc"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pid-ob-2FE">
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pid-ob-2FE" customClass="AlignedCollectionViewFlowLayout" customModule="TrainningCourse" customModuleProvider="target">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>

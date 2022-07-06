@@ -18,8 +18,6 @@ class FilterVC: UIViewController {
     @IBOutlet weak var collectionViewCaterogies: UICollectionView!
     @IBOutlet weak var collectionViewDuration: UICollectionView!
     
-    let leftAlignmentCollectionView = LeftAlignmentCollectionViewFlowLayout()
-    
     let arrCaterogies = ["Design", "Painting", "Coding", "Music", "Visual identiy", "Mathmatics"]
     let arrDuration = ["3-8 Hours", "8-14 Hours", "14-20 Hours", "20-24 Hours", "24-30 Hours"]
     
@@ -49,13 +47,20 @@ class FilterVC: UIViewController {
         multiSlider.thumbImage = UIImage(systemName: "circle.fill")
         multiSlider.thumbTintColor = .mainColor()
         
+        let alignedFlowLayout = AlignedCollectionViewFlowLayout(
+            horizontalAlignment: .left
+        )
+        alignedFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        
         collectionViewCaterogies.delegate = self
         collectionViewCaterogies.dataSource = self
         collectionViewCaterogies.register(UINib(nibName: "CategoriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCollectionViewCell")
-        collectionViewCaterogies.collectionViewLayout = leftAlignmentCollectionView
+        collectionViewCaterogies.collectionViewLayout = alignedFlowLayout
+        
         collectionViewDuration.delegate = self
         collectionViewDuration.dataSource = self
         collectionViewDuration.register(UINib(nibName: "DurationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DurationCollectionViewCell")
+        collectionViewDuration.collectionViewLayout = alignedFlowLayout
     }
     
     @IBAction func onCancelFilter(_ sender: Any) {
@@ -84,13 +89,4 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             return cell
         }
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 10
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 10
-//    }
-    
 }

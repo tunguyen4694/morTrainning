@@ -54,7 +54,7 @@
 		DA98AA6328753F5B00434125 /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA98AA6128753F5B00434125 /* CategoriesCollectionViewCell.xib */; };
 		DA98AA662875408800434125 /* DurationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98AA642875408800434125 /* DurationCollectionViewCell.swift */; };
 		DA98AA672875408800434125 /* DurationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA98AA652875408800434125 /* DurationCollectionViewCell.xib */; };
-		DA98AA6928754C1B00434125 /* LeftAlignmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98AA6828754C1B00434125 /* LeftAlignmentCollectionView.swift */; };
+		DA98AA6D287569D100434125 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98AA6C287569D100434125 /* AlignedCollectionViewFlowLayout.swift */; };
 		DAB80C912873ECF200AF9BFE /* MeetUpTBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB80C902873ECF200AF9BFE /* MeetUpTBVC.swift */; };
 		DAB80C932873F15E00AF9BFE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB80C922873F15E00AF9BFE /* TabBarController.swift */; };
 		DAB80C96287524E800AF9BFE /* MyCourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB80C94287524E800AF9BFE /* MyCourseCollectionViewCell.swift */; };
@@ -149,7 +149,7 @@
 		DA98AA6128753F5B00434125 /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
 		DA98AA642875408800434125 /* DurationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA98AA652875408800434125 /* DurationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DurationCollectionViewCell.xib; sourceTree = "<group>"; };
-		DA98AA6828754C1B00434125 /* LeftAlignmentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignmentCollectionView.swift; sourceTree = "<group>"; };
+		DA98AA6C287569D100434125 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		DAB80C902873ECF200AF9BFE /* MeetUpTBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpTBVC.swift; sourceTree = "<group>"; };
 		DAB80C922873F15E00AF9BFE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DAB80C94287524E800AF9BFE /* MyCourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCourseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				DAB80C922873F15E00AF9BFE /* TabBarController.swift */,
+				DA98AA6C287569D100434125 /* AlignedCollectionViewFlowLayout.swift */,
 				DACE3AF8286E877000DF49F7 /* Extension */,
 				A5843CDD28617BD000747E04 /* TrainningCourse.entitlements */,
 				A5843CE62861CD6B00747E04 /* Delegate */,
@@ -405,7 +406,6 @@
 				DA98AA6128753F5B00434125 /* CategoriesCollectionViewCell.xib */,
 				DA98AA642875408800434125 /* DurationCollectionViewCell.swift */,
 				DA98AA652875408800434125 /* DurationCollectionViewCell.xib */,
-				DA98AA6828754C1B00434125 /* LeftAlignmentCollectionView.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -727,10 +727,10 @@
 				DAC722992865844D00B57EE7 /* CourseVC.swift in Sources */,
 				84795B84285AFF97006AA068 /* SignUpVC.swift in Sources */,
 				84795B48285ACDA9006AA068 /* AppDelegate.swift in Sources */,
+				DA98AA6D287569D100434125 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				DA3FF943286A98E2005FD717 /* TestVC.swift in Sources */,
 				A5843CE02861984F00747E04 /* LoginWithPhone.swift in Sources */,
 				DAC722A128659D8000B57EE7 /* ModelCourse.swift in Sources */,
-				DA98AA6928754C1B00434125 /* LeftAlignmentCollectionView.swift in Sources */,
 				DA1E6ED02865B333001889D0 /* MessageVC.swift in Sources */,
 				A5843CE428619F1B00747E04 /* PhoneCollectionViewCell.swift in Sources */,
 				84795B4A285ACDA9006AA068 /* SceneDelegate.swift in Sources */,
