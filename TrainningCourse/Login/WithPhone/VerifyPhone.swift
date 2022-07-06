@@ -25,6 +25,10 @@ class VerifyPhone: UIViewController {
     
     var phone = ""
     
+    var arrCode: [String] = []
+    var arrLbl: [UILabel] = []
+    var arrVFooter: [UIView] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +44,9 @@ class VerifyPhone: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "PhoneCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhoneCollectionViewCell")
+        
+        arrLbl = [lblCode1, lblCode2, lblCode3, lblCode4]
+        arrVFooter = [vFooter1, vFooter2, vFooter3, vFooter4]
     }
     
     @objc func cancel() {
@@ -51,6 +58,12 @@ class VerifyPhone: UIViewController {
     }
     
     @IBAction func resendCode(_ sender: Any) {
+    }
+    
+    func inputCode() {
+        for (index, item) in arrLbl.enumerated() {
+            item.text = arrCode[safe:index]
+        }
     }
 }
 
@@ -78,30 +91,54 @@ extension VerifyPhone: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if lblCode1.text == "" && arrNum[indexPath.row] != "<-" {
-            lblCode1.text = arrNum[indexPath.row]
-            vFooter1.isHidden = true
-        } else if lblCode1.text != "" && lblCode2.text == "" && arrNum[indexPath.row] != "<-" {
-            lblCode2.text = arrNum[indexPath.row]
-            vFooter2.isHidden = true
-        } else if lblCode2.text != "" && lblCode3.text == "" && arrNum[indexPath.row] != "<-" {
-            lblCode3.text = arrNum[indexPath.row]
-            vFooter3.isHidden = true
-        } else if lblCode3.text != "" && lblCode4.text == "" && arrNum[indexPath.row] != "<-" {
-            lblCode4.text = arrNum[indexPath.row]
-            vFooter4.isHidden = true
-        } else if lblCode1.text != "" && lblCode2.text != "" && lblCode3.text != "" && lblCode4.text != "" && arrNum[indexPath.row] == "<-" {
-            lblCode4.text?.removeAll()
-            vFooter4.isHidden = false
-        } else if lblCode1.text != "" && lblCode2.text != "" && lblCode3.text != "" && lblCode4.text == "" && arrNum[indexPath.row] == "<-" {
-            lblCode3.text?.removeAll()
-            vFooter3.isHidden = false
-        } else if lblCode1.text != "" && lblCode2.text != "" && lblCode3.text == "" && lblCode4.text == "" && arrNum[indexPath.row] == "<-" {
-            lblCode2.text?.removeAll()
-            vFooter2.isHidden = false
-        } else if lblCode1.text != "" && lblCode2.text == "" && lblCode3.text == "" && lblCode4.text == "" && arrNum[indexPath.row] == "<-" {
-            lblCode1.text?.removeAll()
-            vFooter1.isHidden = false
+//        if lblCode1.text == "" && arrNum[indexPath.row] != "<-" {
+//            lblCode1.text = arrNum[indexPath.row]
+//            vFooter1.isHidden = true
+//        } else if lblCode1.text != "" && lblCode2.text == "" && arrNum[indexPath.row] != "<-" {
+//            lblCode2.text = arrNum[indexPath.row]
+//            vFooter2.isHidden = true
+//        } else if lblCode2.text != "" && lblCode3.text == "" && arrNum[indexPath.row] != "<-" {
+//            lblCode3.text = arrNum[indexPath.row]
+//            vFooter3.isHidden = true
+//        } else if lblCode3.text != "" && lblCode4.text == "" && arrNum[indexPath.row] != "<-" {
+//            lblCode4.text = arrNum[indexPath.row]
+//            vFooter4.isHidden = true
+//        } else if lblCode1.text != "" && lblCode2.text != "" && lblCode3.text != "" && lblCode4.text != "" && arrNum[indexPath.row] == "<-" {
+//            lblCode4.text?.removeAll()
+//            vFooter4.isHidden = false
+//        } else if lblCode1.text != "" && lblCode2.text != "" && lblCode3.text != "" && lblCode4.text == "" && arrNum[indexPath.row] == "<-" {
+//            lblCode3.text?.removeAll()
+//            vFooter3.isHidden = false
+//        } else if lblCode1.text != "" && lblCode2.text != "" && lblCode3.text == "" && lblCode4.text == "" && arrNum[indexPath.row] == "<-" {
+//            lblCode2.text?.removeAll()
+//            vFooter2.isHidden = false
+//        } else if lblCode1.text != "" && lblCode2.text == "" && lblCode3.text == "" && lblCode4.text == "" && arrNum[indexPath.row] == "<-" {
+//            lblCode1.text?.removeAll()
+//            vFooter1.isHidden = false
+//        }
+        
+        switch indexPath.row {
+        case 9:
+            break
+        case 11:
+            arrCode = arrCode.dropLast()
+            inputCode()
+            print(arrCode)
+        default:
+            if arrCode.count < 4 {
+            arrCode.append(arrNum[indexPath.row])
+            inputCode()
+                print(arrCode.count)
+            } else {
+                break
+            }
+            print(arrCode)
         }
+    }
+}
+
+public extension Collection {
+    subscript(safe index: Index) -> Element? {
+        startIndex <= index && index < endIndex ? self[index] : nil
     }
 }
