@@ -55,14 +55,11 @@ class CourseViewController: UIViewController {
         vNew.layer.cornerRadius = 10
         
         tableView.separatorStyle = .none
-        tfSearch.delegate = self
+        tfSearch.clearButtonMode = .whileEditing
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CourseTableViewCell", bundle: nil), forCellReuseIdentifier: "CourseTableViewCell")
-    }
-    
-    @IBAction func delTfSearch(_ sender: Any) {
-        tfSearch.text = nil
     }
     
     func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
@@ -173,16 +170,6 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             scrollViewDidStopScrolling()
-        }
-    }
-}
-
-extension CourseViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if tfSearch.text != nil {
-            btnDelText.isHidden = false
-        } else {
-            btnDelText.isHidden = true
         }
     }
 }

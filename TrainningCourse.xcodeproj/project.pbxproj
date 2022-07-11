@@ -257,8 +257,8 @@
 				DA1E6ED12865B33A001889D0 /* Message */,
 				DAC7229A2865994700B57EE7 /* Account */,
 				DA1E6EE128694E64001889D0 /* MyCourse */,
-				84795B50285ACDAA006AA068 /* Assets.xcassets */,
 				DA98AA592875388A00434125 /* Filter */,
+				84795B50285ACDAA006AA068 /* Assets.xcassets */,
 				84795B52285ACDAA006AA068 /* LaunchScreen.storyboard */,
 				84795B55285ACDAA006AA068 /* Info.plist */,
 			);
@@ -924,7 +924,6 @@
 				INFOPLIST_FILE = TrainningCourse/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
@@ -955,7 +954,6 @@
 				INFOPLIST_FILE = TrainningCourse/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;

@@ -38,7 +38,7 @@ class SearchViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
         
-        tfSearch.delegate = self
+        tfSearch.clearButtonMode = .whileEditing
         addFilter()
     }
     
@@ -65,10 +65,6 @@ class SearchViewController: UIViewController {
         multiSlider.valueLabelColor = .titleColor()
         multiSlider.thumbImage = UIImage(systemName: "circle.fill")
         multiSlider.thumbTintColor = .mainColor()
-    }
-    
-    @IBAction func onDelText(_ sender: Any) {
-        tfSearch.text = nil
     }
     
     @IBAction func onFilterSearch(_ sender: Any) {
@@ -128,14 +124,4 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     //    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
     //        return (collectionView.indexPathsForSelectedItems?.count ?? 0) < 2
     //    }
-}
-
-extension SearchViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.text != nil {
-            btnDelText.isHidden = false
-        } else {
-            btnDelText.isHidden = true
-        }
-    }
 }
